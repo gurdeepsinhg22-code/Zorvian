@@ -1,0 +1,339 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --brand-primary: #00b4d8;
+  --brand-primary-dark: #009fbe;
+
+  /* Marketing / reference-aligned tokens (tunable after DevTools audit) */
+  /* Reference-style neutrals + warm accent (navy headings, rose kicker, amber CTA) */
+  --marketing-page-bg: #f4f5f9;
+  --marketing-ink: #0c1929;
+  --marketing-ink-muted: #5c6677;
+  --marketing-accent: #e11d48;
+  --marketing-accent-soft: #fff1f2;
+  --marketing-cta-from: #5a1ccb;
+  --marketing-cta-to: #815edc;
+  /** Primary marketing pill / icon fills (replaces orange–rose) */
+  --marketing-purple-gradient: linear-gradient(90deg, #5a1ccb -2.17%, #815edc 100%);
+  --marketing-container: 72rem; /* max-w-7xl */
+  --marketing-radius-card: 1rem;
+  --marketing-radius-pill: 9999px;
+  --marketing-radius-hero: 2.75rem;
+  --marketing-shadow-header: 0 12px 40px -12px rgba(15, 23, 42, 0.12);
+  --marketing-shadow-card: 0 18px 40px -12px rgba(15, 23, 42, 0.12);
+  --marketing-shadow-floating: 0 24px 60px -16px rgba(30, 27, 75, 0.18);
+  --marketing-section-y: 4rem;
+  --marketing-section-y-md: 5rem;
+  --marketing-marquee-duration: 38s;
+}
+
+/* Admin dashboard theme - uses frontend brand colors */
+:root {
+  --admin-primary: var(--brand-primary);
+  --admin-primary-dark: var(--brand-primary-dark);
+  --admin-primary-light: #EAF9FD;
+  --admin-sidebar: #0c1222;
+  --admin-sidebar-hover: rgba(255, 255, 255, 0.08);
+  --admin-accent: var(--brand-primary);
+}
+
+/* Scrollbar for overflow content - always visible */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Dark scrollbar for sidebar */
+.scrollbar-thin-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.scrollbar-thin-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Page-level scroll for full-height layouts */
+html {
+  overflow-y: scroll;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-dark: var(--brand-primary-dark);
+  --color-admin-primary: var(--admin-primary);
+  --color-admin-primary-dark: var(--admin-primary-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(3px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.float-soft {
+  animation: floatSoft 5.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(0, 180, 216, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.28);
+  }
+}
+
+@keyframes sheenSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hover-lift {
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+}
+
+.btn-glow {
+  animation: glowPulse 3.8s ease-in-out infinite;
+}
+
+.sheen-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  background-size: 250% 100%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.sheen-hover:hover::after {
+  opacity: 1;
+  animation: sheenSweep 1.1s ease forwards;
+}
+
+.float-delay-1 {
+  animation-delay: 0s;
+}
+
+.float-delay-2 {
+  animation-delay: 0.8s;
+}
+
+.float-delay-3 {
+  animation-delay: 1.6s;
+}
+
+.float-delay-4 {
+  animation-delay: 2.4s;
+}
+
+/* Infinite keyword marquee — GPU-friendly translate */
+@keyframes marketing-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marketing-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marketing-marquee var(--marketing-marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .float-soft,
+  .btn-glow {
+    animation: none;
+  }
+}
+
+@layer components {
+  .ref-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--marketing-accent);
+  }
+
+  .ref-kicker-line {
+    height: 1px;
+    width: 2.5rem;
+    flex-shrink: 0;
+    background: linear-gradient(to right, #fb923c, #f43f5e);
+  }
+
+  @media (min-width: 640px) {
+    .ref-kicker-line {
+      width: 3rem;
+    }
+  }
+
+  .ref-kicker-line-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ref-section-title {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--marketing-ink);
+  }
+
+  .ref-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 9999px;
+    background: var(--marketing-purple-gradient);
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #fff;
+    box-shadow: 0 12px 32px rgba(90, 28, 203, 0.32);
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+
+  .ref-cta-primary:hover {
+    filter: brightness(1.06);
+  }
+
+  /** Hero / flat surfaces: no glow under CTA */
+  .ref-cta-primary.ref-cta-primary--flat {
+    box-shadow: none;
+  }
+
+  /** Circular / block fills matching hero header phone + scroll CTA */
+  .bg-marketing-purple-gradient {
+    background-image: var(--marketing-purple-gradient);
+  }
+
+  .shadow-marketing-purple-icon {
+    box-shadow: 0 8px 22px rgba(90, 28, 203, 0.32);
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 3vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 2.2vw, 2.75rem);
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 1.6vw, 2rem);
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply text-gray-800;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-gray-500;
+  }
+
+  select option[disabled],
+  select option[hidden],
+  select option:first-child {
+    @apply text-gray-500;
+  }
+}
