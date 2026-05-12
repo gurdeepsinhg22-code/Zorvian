@@ -8,26 +8,18 @@ import { FaArrowRight, FaCalendarAlt } from 'react-icons/fa';
 
 const PAGE_SIZE = 12;
 
-function getApiBase(apiBaseProp) {
-  if (apiBaseProp) return apiBaseProp;
-  if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
-    return process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.medhostech.com';
-  }
-  return process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
-}
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
 
-function getImageSrc(featuredImage, apiBase) {
-  const base = getApiBase(apiBase);
+function getImageSrc(featuredImage) {
   if (!featuredImage) return '/assets/images/new/1.jpg';
   if (featuredImage.startsWith('http')) {
-    // Replace localhost URLs (from dev seed) with production API base
     if (featuredImage.includes('localhost') || featuredImage.includes('127.0.0.1')) {
       const path = featuredImage.replace(/^https?:\/\/[^/]+/, '');
-      return `${base.replace(/\/$/, '')}${path}`;
+      return `${API_BASE.replace(/\/$/, '')}${path}`;
     }
     return featuredImage;
   }
-  if (featuredImage.startsWith('/uploads')) return `${base.replace(/\/$/, '')}${featuredImage}`;
+  if (featuredImage.startsWith('/uploads')) return `${API_BASE.replace(/\/$/, '')}${featuredImage}`;
   return featuredImage;
 }
 
@@ -37,7 +29,13 @@ function formatDate(d) {
   return date.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMore = false, initialPage = 1, apiBase }) {
+function truncate(text, maxLen = 100) {
+  if (!text) return '';
+  if (text.length <= maxLen) return text;
+  return text.slice(0, maxLen).replace(/\s+\S*$/, '') + '…';
+}
+
+export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMore = false, initialPage = 1 }) {
   const [posts, setPosts] = useState(initialPosts);
   const [page, setPage] = useState(initialPage);
   const [hasMore, setHasMore] = useState(initialHasMore);
@@ -48,7 +46,7 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
     if (loading || !hasMore) return;
     setLoading(true);
     try {
-      const res = await fetch(`${getApiBase(apiBase)}/api/blogs?page=${page + 1}&limit=${PAGE_SIZE}`);
+      const res = await fetch(`/api/blogs?page=${page + 1}&limit=${PAGE_SIZE}`);
       const json = await res.json();
       if (json.success && Array.isArray(json.data)) {
         const newPosts = json.data.filter((b) => b.status === 'published');
@@ -92,30 +90,37 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
               <article className="hover-lift flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-slate-200/60 bg-white shadow-[0_4px_24px_-4px_rgba(14,39,64,0.08)] transition-all duration-300 hover:border-cyan-200/60 hover:shadow-[0_24px_48px_-12px_rgba(2,105,148,0.18)]">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src={getImageSrc(post.featured_image, apiBase)}
+                    src={getImageSrc(post.featured_image)}
                     alt={post.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    unoptimized={getImageSrc(post.featured_image, apiBase)?.startsWith('http')}
+                    unoptimized={getImageSrc(post.featured_image)?.startsWith('http')}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E2238]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--brand-primary)] shadow-sm backdrop-blur">
                     {post.category || 'Blog'}
                   </span>
                 </div>
-                <div className="flex min-h-[160px] flex-1 flex-col p-6">
+                <div className="flex min-h-[200px] flex-1 flex-col p-6">
                   <h2 className="line-clamp-2 min-h-[2.75rem] text-lg font-bold leading-snug text-[#0E2238] transition-colors group-hover:text-[var(--brand-primary)] md:min-h-[3rem] md:text-xl">
                     {post.title}
                   </h2>
-                  <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
-                    <FaCalendarAlt className="h-3.5 w-3.5 shrink-0 text-slate-400" />
-                    <time dateTime={post.created_at}>{formatDate(post.created_at)}</time>
+                  {post.description && (
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-500">
+                      {truncate(post.description, 120)}
+                    </p>
+                  )}
+                    <div className="mt-auto flex items-center justify-between pt-4">
+                    <div className="flex items-center gap-2 text-sm text-slate-400">
+                      <FaCalendarAlt className="h-3.5 w-3.5 shrink-0" />
+                      <time dateTime={post.createdAt || post.created_at}>{formatDate(post.createdAt || post.created_at)}</time>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-primary)] transition-all duration-300 group-hover:gap-3">
+                      Read More
+                      <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </span>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-2 self-start text-sm font-semibold text-[var(--brand-primary)] transition-all duration-300 group-hover:gap-3">
-                    Read More
-                    <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
-                  </span>
                 </div>
               </article>
             </Link>
@@ -126,7 +131,6 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
       {/* Sentinel for infinite scroll */}
       <div ref={sentinelRef} className="h-4" aria-hidden />
 
-      {/* Loading indicator */}
       {loading && (
         <div className="flex justify-center py-12">
           <div className="flex items-center gap-3 text-slate-500">
@@ -137,7 +141,7 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
       )}
 
       {!hasMore && posts.length > 0 && (
-        <p className="text-center py-8 text-sm text-slate-500">You&apos;ve seen all posts</p>
+        <p className="py-8 text-center text-sm text-slate-400">You&apos;ve seen all posts</p>
       )}
     </>
   );

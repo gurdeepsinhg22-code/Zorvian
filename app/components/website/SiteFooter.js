@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaChevronUp } from 'react-icons/fa';
+
 
 /** Fallback while bg image loads; matches dark navy in artwork */
 const BG_FALLBACK = '#0f172a';
@@ -44,10 +44,6 @@ function FooterLinkRow({ href, label }) {
 }
 
 export default function SiteFooter() {
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="relative overflow-hidden text-white" style={{ backgroundColor: BG_FALLBACK }}>
       {/* Footer-only background art (cover + center) */}
@@ -129,14 +125,6 @@ export default function SiteFooter() {
                 Terms of Use
               </a>
             </div>
-            <button
-              type="button"
-              onClick={scrollTop}
-              className="order-3 mx-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-black text-white shadow-[0_8px_24px_rgba(0,0,0,0.45)] transition hover:bg-zinc-900 hover:border-white/25 md:absolute md:right-5 md:top-1/2 md:mx-0 md:-translate-y-1/2 lg:right-8"
-              aria-label="Back to top"
-            >
-              <FaChevronUp className="text-sm" />
-            </button>
           </div>
         </div>
       </div>

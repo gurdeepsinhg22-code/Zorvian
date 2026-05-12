@@ -1,4 +1,3 @@
-import { headers } from 'next/headers';
 import SiteFooter from '../components/website/SiteFooter';
 import Animate from '../components/website/Animate';
 import InnerPageHeroBanner from '../components/website/InnerPageHeroBanner';
@@ -6,17 +5,8 @@ import BlogListInfiniteScroll from '../components/blog/BlogListInfiniteScroll';
 import { WebPageJsonLd } from '../components/website/JsonLd';
 import { buildSeoMetadata } from '../../lib/seo';
 
-async function getApiBase() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (apiUrl) return apiUrl.replace(/\/$/, '');
-  try {
-    const headersList = await headers();
-    const host = headersList.get('host') || '';
-    if (host.includes('medhostech.com')) return 'https://api.medhostech.com';
-  } catch {
-    // headers() not available
-  }
-  return '';
+function getApiBase() {
+  return (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
 }
 
 export const metadata = buildSeoMetadata({
@@ -29,8 +19,7 @@ export const metadata = buildSeoMetadata({
 const PAGE_SIZE = 12;
 
 async function getInitialBlogs() {
-  const base = await getApiBase();
-  if (!base) return { posts: [], hasMore: false, page: 1 };
+  const base = getApiBase();
 
   try {
     const res = await fetch(`${base}/api/blogs?page=1&limit=${PAGE_SIZE}`, {
@@ -56,7 +45,6 @@ async function getInitialBlogs() {
 
 export default async function BlogPage() {
   const { posts: initialPosts, hasMore: initialHasMore, page: initialPage } = await getInitialBlogs();
-  const apiBase = await getApiBase();
 
   return (
     <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
@@ -87,7 +75,6 @@ export default async function BlogPage() {
               initialPosts={initialPosts}
               initialHasMore={initialHasMore}
               initialPage={initialPage}
-              apiBase={apiBase}
             />
           ) : (
             <div className="text-center py-16">

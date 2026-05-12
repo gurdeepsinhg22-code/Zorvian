@@ -7,8 +7,7 @@ import { buildSeoMetadata } from '../../../lib/seo';
 import { FaCalendarAlt, FaArrowLeft, FaUser, FaClock, FaShareAlt } from 'react-icons/fa';
 
 async function getBlogBySlug(slug) {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
-  if (!base) return null;
+  const base = (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
   try {
     const res = await fetch(`${base}/api/blogs/slug/${encodeURIComponent(slug)}`, {
       next: { revalidate: 60 },
@@ -22,7 +21,7 @@ async function getBlogBySlug(slug) {
   return null;
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '') || '';
+const API_BASE = (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
 
 function getImageSrc(featuredImage) {
   if (!featuredImage) return null;
@@ -98,7 +97,7 @@ export default async function BlogDetailPage({ params }) {
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">
             <span className="flex items-center gap-2">
               <FaCalendarAlt className="h-4 w-4 text-[var(--brand-primary)]" />
-              <time dateTime={blog.created_at}>{formatDate(blog.created_at)}</time>
+              <time dateTime={blog.createdAt || blog.created_at}>{formatDate(blog.createdAt || blog.created_at)}</time>
             </span>
             <span className="flex items-center gap-2">
               <FaClock className="h-4 w-4 text-[var(--brand-primary)]" />
