@@ -17,8 +17,9 @@ const barNavLinks = [
   { href: '/products', label: 'Product', hasDropdown: true },
   { href: '/our-process', label: 'Our Process' },
   { href: '/about-us', label: 'About Us' },
-  { href: '/contact-us', label: 'Contact Us' },
+  { href: '/case-studies', label: 'Case Studies' },
   { href: '/blog', label: 'Blog' },
+  { href: '/contact-us', label: 'Contact Us' },
 ];
 
 const heroNavLinks = [
@@ -27,6 +28,8 @@ const heroNavLinks = [
   { href: '/products', label: 'Product', hasDropdown: true },
   { href: '/our-process', label: 'Our Process' },
   { href: '/about-us', label: 'About' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact-us', label: 'Contact Us' },
 ];
 
@@ -44,6 +47,7 @@ function isNavActive(pathname, href) {
   if (href === '/about-us') return pathname === '/about-us' || pathname.startsWith('/about-us/');
   if (href === '/contact-us') return pathname === '/contact-us';
   if (href === '/blog') return pathname === '/blog' || pathname.startsWith('/blog/');
+  if (href === '/case-studies') return pathname === '/case-studies' || pathname.startsWith('/case-studies/');
   if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/');
   if (href === '/our-services') return pathname === '/our-services' || pathname.startsWith('/our-services/');
   if (href === '/our-process') return pathname === '/our-process' || pathname.startsWith('/our-process/');
@@ -360,12 +364,12 @@ export default function SiteHeader({ variant = 'bar' }) {
             About Us
           </a>
           <a
-            href="/contact-us"
+            href="/case-studies"
             className={`relative py-2 transition hover:text-[var(--brand-primary)] after:absolute after:-bottom-[6px] after:left-0 after:h-[2px] after:bg-[var(--brand-primary)] after:transition-all after:duration-300 hover:after:w-full ${
-              pathname.startsWith('/contact-us') ? 'text-[var(--brand-primary)] after:w-full' : 'after:w-0'
+              pathname.startsWith('/case-studies') ? 'text-[var(--brand-primary)] after:w-full' : 'after:w-0'
             }`}
           >
-            Contact Us
+            Case Studies
           </a>
           <a
             href="/blog"
@@ -374,6 +378,14 @@ export default function SiteHeader({ variant = 'bar' }) {
             }`}
           >
             Blog
+          </a>
+          <a
+            href="/contact-us"
+            className={`relative py-2 transition hover:text-[var(--brand-primary)] after:absolute after:-bottom-[6px] after:left-0 after:h-[2px] after:bg-[var(--brand-primary)] after:transition-all after:duration-300 hover:after:w-full ${
+              pathname.startsWith('/contact-us') ? 'text-[var(--brand-primary)] after:w-full' : 'after:w-0'
+            }`}
+          >
+            Contact Us
           </a>
         </nav>
 

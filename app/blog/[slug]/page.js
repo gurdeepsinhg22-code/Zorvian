@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import SiteFooter from '../../components/website/SiteFooter';
 import InnerPageHeroBanner from '../../components/website/InnerPageHeroBanner';
 import { buildSeoMetadata } from '../../../lib/seo';
+import { getBlogFeaturedImageSrc, isRemoteImageSrc } from '../../../lib/media';
 import { FaCalendarAlt, FaArrowLeft, FaUser, FaClock, FaShareAlt } from 'react-icons/fa';
 
 async function getBlogBySlug(slug) {
@@ -19,22 +20,6 @@ async function getBlogBySlug(slug) {
     // Keep build stable when API is unavailable during prerender.
   }
   return null;
-}
-
-const API_BASE = (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
-
-function getImageSrc(featuredImage) {
-  if (!featuredImage) return null;
-  if (featuredImage.startsWith('http')) {
-    // Replace localhost URLs (from dev seed) with production API base
-    if (featuredImage.includes('localhost') || featuredImage.includes('127.0.0.1')) {
-      const path = featuredImage.replace(/^https?:\/\/[^/]+/, '');
-      return `${API_BASE.replace(/\/$/, '')}${path}`;
-    }
-    return featuredImage;
-  }
-  if (featuredImage.startsWith('/uploads') && API_BASE) return `${API_BASE}${featuredImage}`;
-  return featuredImage;
 }
 
 function formatDate(d) {
@@ -57,7 +42,7 @@ export async function generateMetadata({ params }) {
   if (!blog) return { title: 'Blog Not Found' };
   const title = blog.meta_title || blog.title;
   const description = blog.meta_description || blog.description || `Read ${blog.title} on Medhostech blog.`;
-  const ogImage = getImageSrc(blog.featured_image) || undefined;
+  const ogImage = getBlogFeaturedImageSrc(blog.featured_image) || undefined;
   return buildSeoMetadata({
     title: `${title} | Medhostech Blog`,
     description,
@@ -77,6 +62,7 @@ export default async function BlogDetailPage({ params }) {
   const readingTime = estimateReadingTime(blog.content);
   const breadcrumbCrumb =
     blog.title.length > 48 ? `${blog.title.slice(0, 48).trim()}…` : blog.title;
+  const featuredImageSrc = blog.featured_image ? getBlogFeaturedImageSrc(blog.featured_image) : null;
 
   return (
     <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
@@ -116,15 +102,15 @@ export default async function BlogDetailPage({ params }) {
         <div className="relative z-20 mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10">
           <div className="rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-slate-200/50 overflow-hidden">
             {/* Featured image */}
-            {getImageSrc(blog.featured_image) && (
+            {featuredImageSrc && (
               <div className="relative aspect-[21/9] sm:aspect-[2/1] overflow-hidden group">
                 <Image
-                  src={getImageSrc(blog.featured_image)}
+                  src={featuredImageSrc}
                   alt={blog.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 896px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  unoptimized={getImageSrc(blog.featured_image)?.startsWith('http')}
+                  unoptimized={isRemoteImageSrc(featuredImageSrc)}
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none" />
