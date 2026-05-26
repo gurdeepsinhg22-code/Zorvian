@@ -14,6 +14,7 @@ const nextConfig = {
     const backendUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
     return [
       { source: '/api/:path*', destination: `${backendUrl}/api/:path*` },
+      { source: '/uploads/:path*', destination: `${backendUrl}/uploads/:path*` },
     ];
   },
   // Workaround for "WebpackError is not a constructor" in Next.js 15.5 minify-webpack-plugin

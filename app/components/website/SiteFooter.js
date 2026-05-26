@@ -15,6 +15,8 @@ const companyLinks = [
   { href: '/our-services', label: 'Our Services' },
   { href: '/our-process', label: 'Our Process' },
   { href: '/contact-us', label: 'Contact Us' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/case-studies', label: 'Case Studies' },
 ];
 
 /** Service detail pages (matches /services/[slug] routes) */

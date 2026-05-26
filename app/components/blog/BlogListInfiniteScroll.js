@@ -5,23 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Animate from '../website/Animate';
 import { FaArrowRight, FaCalendarAlt } from 'react-icons/fa';
+import { getBlogFeaturedImageSrc, isRemoteImageSrc } from '../../../lib/media';
 
 const PAGE_SIZE = 12;
-
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
-
-function getImageSrc(featuredImage) {
-  if (!featuredImage) return '/assets/images/new/1.jpg';
-  if (featuredImage.startsWith('http')) {
-    if (featuredImage.includes('localhost') || featuredImage.includes('127.0.0.1')) {
-      const path = featuredImage.replace(/^https?:\/\/[^/]+/, '');
-      return `${API_BASE.replace(/\/$/, '')}${path}`;
-    }
-    return featuredImage;
-  }
-  if (featuredImage.startsWith('/uploads')) return `${API_BASE.replace(/\/$/, '')}${featuredImage}`;
-  return featuredImage;
-}
 
 function formatDate(d) {
   if (!d) return '';
@@ -84,19 +70,28 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
   return (
     <>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post, idx) => (
+        {posts.map((post, idx) => {
+          const imageSrc = getBlogFeaturedImageSrc(post.featured_image);
+          return (
           <Animate key={post.id || post.slug || idx} variant="up" delay={Math.min(idx * 0.06, 0.6)}>
             <Link href={`/blog/${post.slug}`} className="group block">
               <article className="hover-lift flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-slate-200/60 bg-white shadow-[0_4px_24px_-4px_rgba(14,39,64,0.08)] transition-all duration-300 hover:border-cyan-200/60 hover:shadow-[0_24px_48px_-12px_rgba(2,105,148,0.18)]">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={getImageSrc(post.featured_image)}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    unoptimized={getImageSrc(post.featured_image)?.startsWith('http')}
-                  />
+                  {imageSrc ? (
+                    <Image
+                      src={imageSrc}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      unoptimized={isRemoteImageSrc(imageSrc)}
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 bg-gradient-to-br from-violet-100 via-white to-cyan-50"
+                      aria-hidden
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E2238]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--brand-primary)] shadow-sm backdrop-blur">
                     {post.category || 'Blog'}
@@ -125,7 +120,8 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
               </article>
             </Link>
           </Animate>
-        ))}
+          );
+        })}
       </div>
 
       {/* Sentinel for infinite scroll */}

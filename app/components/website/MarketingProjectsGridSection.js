@@ -1,13 +1,9 @@
 import Animate from './Animate';
 import Container from '../marketing/ui/Container';
 import MarketingProjectsCarousel from './MarketingProjectsCarousel';
+import { caseStudies } from '../../../lib/marketing/caseStudies';
 
-const projects = [
-  { title: 'Contour Wellness', image: '/assets/images/projects/contour-wellness.png', href: 'https://contour-wellness.com/' },
-  { title: 'Myclassy Wellness', image: '/assets/images/projects/myclassy-wellness.png', href: 'https://myclassywellness.com/' },
-  { title: 'Spaderx', image: '/assets/images/projects/spaderx.png', href: 'https://www.spaderx.com/' },
-  { title: 'Triarcrx', image: '/assets/images/projects/triarcrx.png', href: 'https://triarcrx.com/' },
-];
+const projects = caseStudies.map(({ title, image, href }) => ({ title, image, href }));
 
 export default function MarketingProjectsGridSection() {
   return (
@@ -35,8 +31,8 @@ export default function MarketingProjectsGridSection() {
           </Animate>
           <Animate variant="up" delay={0.1}>
             <div className="flex justify-center">
-              <a href="/our-services" className="ref-cta-primary mt-8">
-                learn more
+              <a href="/case-studies" className="ref-cta-primary mt-8">
+                View case studies
               </a>
             </div>
           </Animate>
