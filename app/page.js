@@ -6,6 +6,7 @@ import HeroSection from './components/website/HeroSection';
 import SiteFooter from './components/website/SiteFooter';
 import KeywordMarqueeSection from './components/website/KeywordMarqueeSection';
 import MarketingProjectsGridSection from './components/website/MarketingProjectsGridSection';
+import AiTechnologiesSection from './components/website/AiTechnologiesSection';
 import { WebPageJsonLd } from './components/website/JsonLd';
 import { buildSeoMetadata } from '../lib/seo';
 
@@ -34,6 +35,8 @@ export default function HomePage() {
 
       <KeywordMarqueeSection />
       <MarketingProjectsGridSection />
+
+      <AiTechnologiesSection />
 
       <SiteFooter />
     </main>

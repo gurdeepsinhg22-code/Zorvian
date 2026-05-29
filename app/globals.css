@@ -293,6 +293,214 @@ body {
   .shadow-marketing-purple-icon {
     box-shadow: 0 8px 22px rgba(90, 28, 203, 0.32);
   }
+
+  /* Case study detail — ambient motion */
+  @keyframes cs-float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(12px, -18px) scale(1.05);
+    }
+  }
+
+  @keyframes cs-float-delayed {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-16px, 14px) scale(1.08);
+    }
+  }
+
+  @keyframes cs-shimmer {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+  @keyframes cs-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .cs-orb {
+    animation: cs-float 9s ease-in-out infinite;
+  }
+
+  .cs-orb-delayed {
+    animation: cs-float-delayed 11s ease-in-out infinite;
+  }
+
+  .cs-title-shimmer {
+    background-size: 200% auto;
+    animation: cs-shimmer 6s linear infinite;
+  }
+
+  .cs-marquee-track {
+    animation: cs-marquee 28s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-orb,
+    .cs-orb-delayed,
+    .cs-title-shimmer,
+    .cs-marquee-track,
+    .process-roadmap-pulse {
+      animation: none;
+    }
+  }
+
+  /* Our Process — roadmap page */
+  @keyframes process-node-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.25;
+    }
+  }
+
+  @keyframes process-float-slow {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(16px, -20px);
+    }
+  }
+
+  @keyframes process-float-delayed {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-20px, 14px);
+    }
+  }
+
+  @keyframes process-shimmer-spin {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  @keyframes process-gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .process-roadmap-grid {
+    background-image:
+      linear-gradient(rgba(90, 28, 203, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90, 28, 203, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 10%, transparent 78%);
+  }
+
+  .process-roadmap-pulse {
+    animation: process-node-pulse 2s ease-in-out infinite;
+  }
+
+  .process-float-slow {
+    animation: process-float-slow 10s ease-in-out infinite;
+  }
+
+  .process-float-delayed {
+    animation: process-float-delayed 12s ease-in-out infinite;
+  }
+
+  .process-gradient-title {
+    background: linear-gradient(120deg, #0e2238 0%, #5a1ccb 35%, #0891b2 65%, #0e2238 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: process-gradient-shift 8s ease infinite;
+  }
+
+  .process-shimmer-border {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--step-accent, #5a1ccb),
+      #0891b2,
+      var(--step-accent, #5a1ccb),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: process-shimmer-spin 3s linear infinite;
+    padding: 2px;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .process-image-frame {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 24px 60px -16px rgba(0, 0, 0, 0.45);
+  }
+
+  .process-cta-pattern {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  .process-stat-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .process-step-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .process-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 70px -24px rgba(90, 28, 203, 0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-float-slow,
+    .process-float-delayed,
+    .process-gradient-title,
+    .process-shimmer-border {
+      animation: none;
+    }
+
+    .process-gradient-title {
+      color: #0e2238;
+      background: none;
+      -webkit-text-fill-color: #0e2238;
+    }
+  }
 }
 
 @layer base {

@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import SiteFooter from '../components/website/SiteFooter';
 import Animate from '../components/website/Animate';
 import InnerPageHeroBanner from '../components/website/InnerPageHeroBanner';
 import { WebPageJsonLd } from '../components/website/JsonLd';
 import { buildSeoMetadata } from '../../lib/seo';
 import { caseStudies } from '../../lib/marketing/caseStudies';
-import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 export const metadata = buildSeoMetadata({
   title: 'Case Studies | MedHostech Solutions',
@@ -46,15 +47,10 @@ export default function CaseStudiesPage() {
             </p>
           </Animate>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {caseStudies.map((study, idx) => (
               <Animate key={study.slug} variant="up" delay={Math.min(idx * 0.08, 0.4)}>
-                <a
-                  href={study.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block h-full"
-                >
+                <Link href={`/case-studies/${study.slug}`} className="group block h-full">
                   <article className="hover-lift flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-slate-200/60 bg-white shadow-[0_4px_24px_-4px_rgba(14,39,64,0.08)] transition-all duration-300 hover:border-cyan-200/60 hover:shadow-[0_24px_48px_-12px_rgba(2,105,148,0.18)]">
                     <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                       <Image
@@ -86,12 +82,12 @@ export default function CaseStudiesPage() {
                         ))}
                       </ul>
                       <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-primary)] transition-all duration-300 group-hover:gap-3">
-                        View live site
-                        <FaExternalLinkAlt className="text-xs" aria-hidden />
+                        Read case study
+                        <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
                       </span>
                     </div>
                   </article>
-                </a>
+                </Link>
               </Animate>
             ))}
           </div>
@@ -102,13 +98,10 @@ export default function CaseStudiesPage() {
               <p className="mx-auto mt-3 max-w-xl text-slate-600">
                 Tell us about your goals—we will help you plan, design, and launch a solution tailored to your business.
               </p>
-              <a
-                href="/contact-us"
-                className="ref-cta-primary mt-8 inline-flex items-center gap-2"
-              >
+              <Link href="/contact-us" className="ref-cta-primary mt-8 inline-flex items-center gap-2">
                 Contact Us
                 <FaArrowRight className="text-sm" aria-hidden />
-              </a>
+              </Link>
             </div>
           </Animate>
         </div>

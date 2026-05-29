@@ -5,22 +5,8 @@ import SiteFooter from '../../components/website/SiteFooter';
 import InnerPageHeroBanner from '../../components/website/InnerPageHeroBanner';
 import { buildSeoMetadata } from '../../../lib/seo';
 import { getBlogFeaturedImageSrc, isRemoteImageSrc } from '../../../lib/media';
+import { fetchBlogBySlug } from '../../../lib/blogPublicApi';
 import { FaCalendarAlt, FaArrowLeft, FaUser, FaClock, FaShareAlt } from 'react-icons/fa';
-
-async function getBlogBySlug(slug) {
-  const base = (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
-  try {
-    const res = await fetch(`${base}/api/blogs/slug/${encodeURIComponent(slug)}`, {
-      next: { revalidate: 60 },
-    });
-    if (!res.ok) return null;
-    const json = await res.json();
-    if (json.success && json.data) return json.data;
-  } catch {
-    // Keep build stable when API is unavailable during prerender.
-  }
-  return null;
-}
 
 function formatDate(d) {
   if (!d) return '';
@@ -36,9 +22,9 @@ function estimateReadingTime(html) {
 }
 
 export async function generateMetadata({ params }) {
-  const slug = params?.slug;
+  const { slug } = await params;
   if (!slug) return {};
-  const blog = await getBlogBySlug(slug);
+  const blog = await fetchBlogBySlug(slug);
   if (!blog) return { title: 'Blog Not Found' };
   const title = blog.meta_title || blog.title;
   const description = blog.meta_description || blog.description || `Read ${blog.title} on Medhostech blog.`;
@@ -53,10 +39,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogDetailPage({ params }) {
-  const slug = params?.slug;
+  const { slug } = await params;
   if (!slug) notFound();
 
-  const blog = await getBlogBySlug(slug);
+  const blog = await fetchBlogBySlug(slug);
   if (!blog || (blog.status && blog.status !== 'published')) notFound();
 
   const readingTime = estimateReadingTime(blog.content);
@@ -98,12 +84,10 @@ export default async function BlogDetailPage({ params }) {
       </section>
 
       <article className="relative">
-        {/* Content area */}
         <div className="relative z-20 mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10">
-          <div className="rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-slate-200/50 overflow-hidden">
-            {/* Featured image */}
+          <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-slate-200/50">
             {featuredImageSrc && (
-              <div className="relative aspect-[21/9] sm:aspect-[2/1] overflow-hidden group">
+              <div className="group relative aspect-[21/9] overflow-hidden sm:aspect-[2/1]">
                 <Image
                   src={featuredImageSrc}
                   alt={blog.title}
@@ -113,34 +97,31 @@ export default async function BlogDetailPage({ params }) {
                   unoptimized={isRemoteImageSrc(featuredImageSrc)}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent pointer-events-none" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
               </div>
             )}
 
             <div className="px-6 py-10 sm:px-10 sm:py-14">
-              {/* Lead / Description */}
               {blog.description && (
-                <p className="text-base sm:text-lg text-slate-600 leading-[1.7] mb-10 font-medium border-l-4 border-[var(--brand-primary)] pl-6 -ml-10 sm:-ml-14 sm:pl-10">
+                <p className="-ml-10 mb-10 border-l-4 border-[var(--brand-primary)] pl-6 text-base font-medium leading-[1.7] text-slate-600 sm:-ml-14 sm:pl-10 sm:text-lg">
                   {blog.description}
                 </p>
               )}
 
-              {/* Author card */}
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50/80 border border-slate-100 mb-12">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-dark)] text-white font-bold text-lg shadow-lg shadow-cyan-500/20">
+              <div className="mb-12 flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50/80 p-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-primary-dark)] text-lg font-bold text-white shadow-lg shadow-cyan-500/20">
                   M
                 </div>
                 <div>
                   <p className="font-semibold text-slate-800">Medhostech Editorial</p>
                   <p className="text-sm text-slate-500">Healthcare IT & software insights</p>
                 </div>
-                <div className="ml-auto hidden sm:flex items-center gap-2 text-slate-400 text-sm">
+                <div className="ml-auto hidden items-center gap-2 text-sm text-slate-400 sm:flex">
                   <FaShareAlt className="h-4 w-4" />
                   <span>Share</span>
                 </div>
               </div>
 
-              {/* Article content - matches website body text (text-base, 1rem) */}
               <div
                 className="
                   prose prose-slate max-w-none
@@ -158,11 +139,10 @@ export default async function BlogDetailPage({ params }) {
             </div>
           </div>
 
-          {/* Back to blog CTA */}
-          <div className="mt-12 mb-8 text-center">
+          <div className="mb-8 mt-12 text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all hover:bg-[var(--brand-primary-dark)] hover:shadow-cyan-500/30 hover:gap-3"
+              className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all hover:bg-[var(--brand-primary-dark)] hover:gap-3 hover:shadow-cyan-500/30"
             >
               <FaArrowLeft size={14} />
               Back to all blogs
