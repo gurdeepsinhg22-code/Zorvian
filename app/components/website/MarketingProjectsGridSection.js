@@ -21,7 +21,7 @@ export default function MarketingProjectsGridSection() {
             <div className="flex justify-center">
               <p className="ref-kicker text-sm sm:text-base">
                 <span className="ref-kicker-line" aria-hidden />
-                Our best services
+                Case studies
               </p>
             </div>
             <h2 className="ref-section-title mt-4 text-3xl sm:text-4xl md:text-[2.5rem] md:leading-tight">
