@@ -3,7 +3,11 @@ import Container from '../marketing/ui/Container';
 import MarketingProjectsCarousel from './MarketingProjectsCarousel';
 import { caseStudies } from '../../../lib/marketing/caseStudies';
 
-const projects = caseStudies.map(({ title, image, href }) => ({ title, image, href }));
+const projects = caseStudies.map(({ title, image, slug }) => ({
+  title,
+  image,
+  href: `/case-studies/${slug}`,
+}));
 
 export default function MarketingProjectsGridSection() {
   return (

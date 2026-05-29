@@ -293,6 +293,71 @@ body {
   .shadow-marketing-purple-icon {
     box-shadow: 0 8px 22px rgba(90, 28, 203, 0.32);
   }
+
+  /* Case study detail — ambient motion */
+  @keyframes cs-float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(12px, -18px) scale(1.05);
+    }
+  }
+
+  @keyframes cs-float-delayed {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-16px, 14px) scale(1.08);
+    }
+  }
+
+  @keyframes cs-shimmer {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+  @keyframes cs-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .cs-orb {
+    animation: cs-float 9s ease-in-out infinite;
+  }
+
+  .cs-orb-delayed {
+    animation: cs-float-delayed 11s ease-in-out infinite;
+  }
+
+  .cs-title-shimmer {
+    background-size: 200% auto;
+    animation: cs-shimmer 6s linear infinite;
+  }
+
+  .cs-marquee-track {
+    animation: cs-marquee 28s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-orb,
+    .cs-orb-delayed,
+    .cs-title-shimmer,
+    .cs-marquee-track {
+      animation: none;
+    }
+  }
 }
 
 @layer base {

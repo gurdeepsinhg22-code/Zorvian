@@ -62,21 +62,39 @@ export default function MarketingProjectsCarousel({
   useEffect(() => {
     if (!emblaApi) return;
     const autoplay = emblaApi.plugins()?.autoplay;
-    if (!autoplay) return;
+    if (!autoplay || typeof autoplay.stop !== 'function') return;
+
+    // Avoid autoplay edge-cases when there is nothing to rotate.
+    if ((projects?.length || 0) <= 1) {
+      autoplay.stop();
+      return;
+    }
 
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const syncAutoplay = () => {
-      if (mq.matches) {
-        autoplay.stop();
-      } else {
+    const startAutoplay = () => {
+      if (typeof autoplay.play === 'function') {
         autoplay.play();
+      } else if (typeof autoplay.reset === 'function') {
+        autoplay.reset();
+      }
+    };
+
+    const syncAutoplay = () => {
+      try {
+        if (mq.matches) {
+          autoplay.stop();
+        } else {
+          startAutoplay();
+        }
+      } catch {
+        // Defensive guard: embla/plugin instances can be stale during rapid remounts.
       }
     };
 
     syncAutoplay();
     mq.addEventListener('change', syncAutoplay);
     return () => mq.removeEventListener('change', syncAutoplay);
-  }, [emblaApi]);
+  }, [emblaApi, projects]);
 
   return (
     <div className="relative">

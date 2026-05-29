@@ -1,3 +1,5 @@
+import { getCaseStudySlugs } from '../lib/marketing/caseStudies';
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://medhostech.com';
 
 async function getProductSlugs() {
@@ -39,5 +41,12 @@ export default async function sitemap() {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...productPages];
+  const caseStudyPages = getCaseStudySlugs().map((slug) => ({
+    url: `${BASE_URL}/case-studies/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...productPages, ...caseStudyPages];
 }
