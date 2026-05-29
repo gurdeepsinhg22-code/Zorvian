@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FaChevronDown, FaBars, FaTimes, FaPhone } from 'react-icons/fa';
+import ClientPortal from './ClientPortal';
 
 const API_BASE =
   typeof window !== 'undefined' ? process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001' : '';
@@ -103,12 +104,12 @@ export default function SiteHeader({ variant = 'bar' }) {
   if (isHero) {
     return (
       <>
-        <header className="relative z-30 grid min-h-[3.25rem] w-full grid-cols-[1fr_auto] items-center gap-2 sm:min-h-[3.5rem] lg:grid-cols-[auto_1fr_auto] lg:items-stretch lg:gap-0">
+        <header className="relative z-30 grid min-h-[3.25rem] w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:min-h-[3.5rem] lg:grid-cols-[auto_1fr_auto] lg:items-stretch lg:gap-0">
             <a
               href="/"
-              className="relative flex min-w-0 w-[230px] max-w-[calc(100vw-4.5rem)] shrink-0 items-center self-center py-0.5 pl-1 sm:pl-2 lg:pl-3"
+              className="relative flex min-w-0 items-center self-center py-0.5 lg:w-[230px] lg:shrink-0 lg:pl-3"
             >
-              <span className="relative block h-[48px] w-full sm:h-[52px]">
+              <span className="relative block h-[44px] w-[min(100%,200px)] sm:h-[48px] sm:w-[min(100%,230px)] lg:h-[52px] lg:w-full">
                 <Image
                   src={MARKETING_LOGO_URL}
                   alt="MedHostech Solutions"
@@ -174,11 +175,11 @@ export default function SiteHeader({ variant = 'bar' }) {
               </span>
             </a>
 
-            <div className="flex justify-end pr-1 sm:pr-2 lg:hidden">
+            <div className="flex shrink-0 items-center justify-end lg:hidden">
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/90 bg-white/90 text-[#0c1f3a] shadow-sm transition hover:border-rose-200 hover:bg-rose-50/80"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white text-[#0c1f3a] shadow-sm transition hover:border-rose-200 hover:bg-rose-50/80"
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileOpen}
               >
@@ -198,87 +199,94 @@ export default function SiteHeader({ variant = 'bar' }) {
             </div>
         </header>
 
-        <div
-          aria-hidden={!mobileOpen}
-          className={`fixed inset-0 z-[200] lg:hidden ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        >
+        <ClientPortal>
           <div
-            className={`absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 ${
-              mobileOpen ? 'opacity-100' : 'opacity-0'
-            }`}
-            onClick={closeMobile}
-            aria-hidden
-          />
-          <div
-            className={`absolute right-0 top-0 flex h-full w-[min(100%,380px)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out ${
-              mobileOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            aria-hidden={!mobileOpen}
+            className={`fixed inset-0 z-[300] lg:hidden ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
           >
-            <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4">
-              <span className="text-sm font-bold text-[#0c1f3a]">Menu</span>
-              <button
-                type="button"
-                onClick={closeMobile}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600"
-                aria-label="Close menu"
-              >
-                <FaTimes />
-              </button>
-            </div>
-            <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
-              {mobileLinks.map((link) =>
-                link.hasDropdown ? (
-                  <div key={link.label}>
-                    <button
-                      type="button"
-                      onClick={() => setProductsOpen(!productsOpen)}
-                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold text-[#0c1f3a] hover:bg-slate-50"
-                    >
-                      {link.label}
-                      <FaChevronDown className={`text-sm text-slate-500 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        productsOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="space-y-1 border-l-2 border-violet-200 py-2 pl-4">
-                        {heroDropdownProducts.map((p) => (
-                          <a
-                            key={p.slug}
-                            href={p.href}
-                            {...externalLinkProps(p.href)}
-                            onClick={closeMobile}
-                            className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-rose-50 hover:text-rose-700"
-                          >
-                            {p.title}
-                          </a>
-                        ))}
+            <div
+              className={`absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 ${
+                mobileOpen ? 'opacity-100' : 'opacity-0'
+              }`}
+              onClick={closeMobile}
+              aria-hidden
+            />
+            <div
+              className={`absolute right-0 top-0 flex h-[100dvh] max-h-[100dvh] w-[min(100%,380px)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out ${
+                mobileOpen ? 'translate-x-0' : 'translate-x-full'
+              }`}
+            >
+              <div className="flex shrink-0 items-center justify-between border-b border-slate-100 px-4 py-4">
+                <span className="text-sm font-bold text-[#0c1f3a]">Menu</span>
+                <button
+                  type="button"
+                  onClick={closeMobile}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600"
+                  aria-label="Close menu"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+              <nav className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3 py-4">
+                {mobileLinks.map((link) =>
+                  link.hasDropdown ? (
+                    <div key={link.label}>
+                      <button
+                        type="button"
+                        onClick={() => setProductsOpen(!productsOpen)}
+                        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold text-[#0c1f3a] hover:bg-slate-50"
+                      >
+                        {link.label}
+                        <FaChevronDown
+                          className={`text-sm text-slate-500 transition-transform ${productsOpen ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          productsOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <div className="space-y-1 border-l-2 border-violet-200 py-2 pl-4">
+                          {heroDropdownProducts.map((p) => (
+                            <a
+                              key={p.slug}
+                              href={p.href}
+                              {...externalLinkProps(p.href)}
+                              onClick={closeMobile}
+                              className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-rose-50 hover:text-rose-700"
+                            >
+                              {p.title}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={closeMobile}
-                    className="block rounded-xl px-4 py-3 text-base font-semibold text-[#0c1f3a] hover:bg-rose-50 hover:text-rose-700"
-                  >
-                    {link.label}
-                  </a>
-                )
-              )}
-              <a
-                href="tel:+917018347459"
-                onClick={closeMobile}
-                className="bg-marketing-purple-gradient mt-4 flex items-center justify-center gap-2 rounded-full px-4 py-3 text-base font-semibold text-white shadow-[0_12px_32px_rgba(90,28,203,0.3)]"
-              >
-                <FaPhone className="text-sm" />
-                +91 7018347459
-              </a>
-            </nav>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={closeMobile}
+                      className="block rounded-xl px-4 py-3 text-base font-semibold text-[#0c1f3a] hover:bg-rose-50 hover:text-rose-700"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+                <a
+                  href="tel:+917018347459"
+                  onClick={closeMobile}
+                  className="bg-marketing-purple-gradient mt-4 flex items-center justify-center gap-2 rounded-full px-4 py-3 text-base font-semibold text-white shadow-[0_12px_32px_rgba(90,28,203,0.3)]"
+                >
+                  <FaPhone className="text-sm" />
+                  +91 7018347459
+                </a>
+              </nav>
+            </div>
           </div>
-        </div>
+        </ClientPortal>
       </>
     );
   }

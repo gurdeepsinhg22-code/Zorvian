@@ -1,13 +1,10 @@
 import SiteFooter from '../components/website/SiteFooter';
-import Animate from '../components/website/Animate';
 import InnerPageHeroBanner from '../components/website/InnerPageHeroBanner';
 import BlogListInfiniteScroll from '../components/blog/BlogListInfiniteScroll';
+import BlogLoadError from '../components/blog/BlogLoadError';
 import { WebPageJsonLd } from '../components/website/JsonLd';
 import { buildSeoMetadata } from '../../lib/seo';
-
-function getApiBase() {
-  return (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001').replace(/\/$/, '');
-}
+import { fetchPublishedBlogs } from '../../lib/blogPublicApi';
 
 export const metadata = buildSeoMetadata({
   title: 'Blog - Medhostech | Healthcare IT, EHR & HRMS Insights',
@@ -18,33 +15,11 @@ export const metadata = buildSeoMetadata({
 
 const PAGE_SIZE = 12;
 
-async function getInitialBlogs() {
-  const base = getApiBase();
-
-  try {
-    const res = await fetch(`${base}/api/blogs?page=1&limit=${PAGE_SIZE}`, {
-      next: { revalidate: 60 },
-    });
-    if (!res.ok) return { posts: [], hasMore: false, page: 1 };
-    const json = await res.json();
-    if (json.success && Array.isArray(json.data)) {
-      const posts = json.data.filter((b) => b.status === 'published');
-      const pagination = json.pagination || {};
-      const totalPages = pagination.pages ?? 1;
-      return {
-        posts,
-        hasMore: 1 < totalPages,
-        page: 1,
-      };
-    }
-  } catch {
-    // Keep build stable when API is unavailable during prerender.
-  }
-  return { posts: [], hasMore: false, page: 1 };
-}
-
 export default async function BlogPage() {
-  const { posts: initialPosts, hasMore: initialHasMore, page: initialPage } = await getInitialBlogs();
+  const { posts: initialPosts, hasMore: initialHasMore, page: initialPage, error } = await fetchPublishedBlogs({
+    page: 1,
+    limit: PAGE_SIZE,
+  });
 
   return (
     <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
@@ -60,7 +35,6 @@ export default async function BlogPage() {
         subtitle="Insights on healthcare IT, patient management, HRMS, and clinic management systems."
       />
 
-      {/* Blog Posts */}
       <section className="relative overflow-hidden bg-[#FAFCFE] py-20 sm:py-24">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.02]"
@@ -70,14 +44,16 @@ export default async function BlogPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-          {initialPosts.length > 0 ? (
+          {error ? (
+            <BlogLoadError message={error} />
+          ) : initialPosts.length > 0 ? (
             <BlogListInfiniteScroll
               initialPosts={initialPosts}
               initialHasMore={initialHasMore}
               initialPage={initialPage}
             />
           ) : (
-            <div className="text-center py-16">
+            <div className="py-16 text-center">
               <p className="text-slate-600">No blog posts yet. Check back soon!</p>
             </div>
           )}
