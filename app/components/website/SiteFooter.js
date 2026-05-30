@@ -21,12 +21,12 @@ const companyLinks = [
 
 /** Service detail pages (matches /services/[slug] routes) */
 const serviceLinks = [
-  { href: '/services/website-development', label: 'Web Development' },
-  { href: '/services/mobile-applications', label: 'Mobile Applications' },
-  { href: '/services/e-commerce-solutions', label: 'E-Commerce Solutions' },
-  { href: '/services/web-application-development', label: 'Web Application Development' },
-  { href: '/services/website-maintenance-support', label: 'Website Maintenance & Support' },
-  { href: '/services/speed-optimization-performance', label: 'Speed Optimization & Performance' },
+  { href: '/services/website-development', label: 'Digital Solutions' },
+  { href: '/services/mobile-applications', label: 'Mobile Innovation' },
+  { href: '/services/e-commerce-solutions', label: 'Smart Commerce' },
+  { href: '/services/web-application-development', label: 'Cloud Applications' },
+  { href: '/services/website-maintenance-support', label: 'Platform Care' },
+  { href: '/services/speed-optimization-performance', label: 'Core Web Vitals' },
 ];
 
 function FooterLinkRow({ href, label }) {

@@ -3,6 +3,7 @@ import FeaturesHighlightSection from './components/website/FeaturesHighlightSect
 import ServicesGridSection from './components/website/ServicesGridSection';
 import CompanyBenefitsSection from './components/website/CompanyBenefitsSection';
 import HeroSection from './components/website/HeroSection';
+import VideoHeroSection from './components/website/VideoHeroSection';
 import SiteFooter from './components/website/SiteFooter';
 import KeywordMarqueeSection from './components/website/KeywordMarqueeSection';
 import MarketingProjectsGridSection from './components/website/MarketingProjectsGridSection';
@@ -25,6 +26,7 @@ export default function HomePage() {
         description="Professional web development, web applications, and custom digital solutions for business growth."
         url="/"
       />
+      <VideoHeroSection />
       <HeroSection />
 
       <AboutIntroSection />

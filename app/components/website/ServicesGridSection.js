@@ -44,7 +44,7 @@ const speedOptCellHover =
 const items = [
   {
     href: '/services/website-development',
-    title: 'Website Development',
+    title: 'Digital Solutions',
     desc: 'Custom business websites, corporate sites, and landing pages built with modern technologies.',
     icon: FaDesktop,
     ring: 'from-violet-500 to-fuchsia-500',
@@ -53,7 +53,7 @@ const items = [
   },
   {
     href: '/services/mobile-applications',
-    title: 'Mobile Applications',
+    title: 'Mobile Innovation',
     desc: 'Scalable mobile applications built with modern frameworks to deliver seamless performance across devices.',
     icon: FaMobileAlt,
     ring: 'from-orange-400 to-rose-500',
@@ -62,7 +62,7 @@ const items = [
   },
   {
     href: '/services/e-commerce-solutions',
-    title: 'E-Commerce Solutions',
+    title: 'Smart Commerce',
     desc: 'WooCommerce and custom e-commerce websites with secure payment integration.',
     icon: FaShoppingCart,
     ring: 'from-cyan-400 to-teal-500',
@@ -71,7 +71,7 @@ const items = [
   },
   {
     href: '/services/web-application-development',
-    title: 'Web Application Development',
+    title: 'Cloud Applications',
     desc: 'Scalable web apps using modern frameworks tailored to your business needs.',
     icon: FaLaptopCode,
     ring: 'from-pink-400 to-orange-400',
@@ -80,7 +80,7 @@ const items = [
   },
   {
     href: '/services/website-maintenance-support',
-    title: 'Website Maintenance & Support',
+    title: 'Platform Care',
     desc: 'Ongoing updates, bug fixes, backups, and performance monitoring.',
     icon: FaTools,
     ring: 'from-cyan-400 to-blue-500',
@@ -89,7 +89,7 @@ const items = [
   },
   {
     href: '/services/speed-optimization-performance',
-    title: 'Speed Optimization & Performance',
+    title: 'Core Web Vitals',
     desc: 'Improve website loading speed, Core Web Vitals, and overall performance for better user experience and SEO rankings.',
     icon: FaTachometerAlt,
     ring: 'from-blue-500 to-violet-600',
