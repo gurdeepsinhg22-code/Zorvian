@@ -8,16 +8,12 @@ import {
   useInView,
   useReducedMotion,
 } from 'framer-motion';
-import {
-  FaChartLine,
-  FaHeartbeat,
-  FaShieldAlt,
-  FaClock,
-  FaHandshake,
-} from 'react-icons/fa';
+import { FaClock } from 'react-icons/fa';
 import Animate from '../Animate';
 import AboutCtaSection from './AboutCtaSection';
-import AboutDeliverSection from './AboutDeliverSection';
+import AboutMissionVisionValuesSection from './AboutMissionVisionValuesSection';
+import AboutFaqSection from './AboutFaqSection';
+import AboutWhyChooseUsSection from './AboutWhyChooseUsSection';
 import InnerPageHeroBanner from '../InnerPageHeroBanner';
 import SiteFooter from '../SiteFooter';
 import {
@@ -28,55 +24,21 @@ import {
 } from '../../../../lib/marketing/motion';
 
 const STATS = [
-  { value: 12, suffix: '+', label: 'Years in healthcare IT' },
-  { value: 500, suffix: '+', label: 'Care teams supported' },
+  { value: 12, suffix: '+', label: 'Years of experience' },
+  { value: 500, suffix: '+', label: 'Projects delivered' },
   { value: 99.9, suffix: '%', label: 'Platform uptime', decimals: 1 },
-  { value: 24, suffix: '/7', label: 'Clinical support' },
-];
-
-const VALUES = [
-  {
-    icon: FaHeartbeat,
-    title: 'Patient-first design',
-    desc: 'Every workflow we build starts with how it affects the person receiving care—not just the screen clinicians see.',
-    tone: 'from-rose-500/15 to-orange-400/10 text-rose-600',
-  },
-  {
-    icon: FaShieldAlt,
-    title: 'Security by default',
-    desc: 'HIPAA-aware architecture, encrypted data paths, and audit-ready controls woven into the product from day one.',
-    tone: 'from-cyan-500/15 to-sky-400/10 text-cyan-700',
-  },
-  {
-    icon: FaChartLine,
-    title: 'Measurable outcomes',
-    desc: 'We track adoption, documentation time, and operational KPIs so improvements are visible—not assumed.',
-    tone: 'from-violet-500/15 to-purple-400/10 text-violet-700',
-  },
-  {
-    icon: FaHandshake,
-    title: 'True partnership',
-    desc: 'Implementation, training, and ongoing optimization—we stay engaged long after go-live.',
-    tone: 'from-emerald-500/15 to-teal-400/10 text-emerald-700',
-  },
-];
-
-const MILESTONES = [
-  { year: '2013', title: 'Founded with a clinical focus', desc: 'Started building tools that reduce admin burden for busy practices.' },
-  { year: '2017', title: 'First multi-site deployment', desc: 'Scaled EHR workflows across departments with unified patient records.' },
-  { year: '2020', title: 'Telehealth & remote care', desc: 'Launched virtual visit flows and patient portals during peak demand.' },
-  { year: '2024', title: 'AI-assisted documentation', desc: 'Smart templates and insights that help clinicians finish charts faster.' },
+  { value: 24, suffix: '/7', label: 'Expert support' },
 ];
 
 const MARQUEE_ITEMS = [
-  'Electronic Health Records',
-  'Patient Portals',
-  'Practice Management',
-  'Telehealth',
-  'Clinical Analytics',
-  'HIPAA-Ready Hosting',
-  'Smart Scheduling',
-  'Revenue Cycle',
+  'Website Development',
+  'Web Applications',
+  'Mobile Apps',
+  'E-Commerce',
+  'Cloud Applications',
+  'UI/UX Design',
+  'SEO & Performance',
+  'Maintenance & Support',
 ];
 
 function AnimatedCounter({ value, suffix = '', decimals = 0 }) {
@@ -176,7 +138,7 @@ function MissionVisual() {
       >
         <Image
           src="/assets/images/about-growth-right.png"
-          alt="Healthcare technology team"
+          alt="MedHostech digital solutions team"
           fill
           sizes="400px"
           className="object-cover object-top"
@@ -193,8 +155,8 @@ function MissionVisual() {
         <p className="text-lg font-bold text-[#111827]">Impact</p>
         <div className="mt-4 space-y-3">
           {[
-            { pct: '38%', label: 'Less charting time', color: 'bg-cyan-100 text-cyan-700' },
-            { pct: '92%', label: 'Staff satisfaction', color: 'bg-lime-100 text-lime-700' },
+            { pct: '40%', label: 'Faster launches', color: 'bg-cyan-100 text-cyan-700' },
+            { pct: '92%', label: 'Client satisfaction', color: 'bg-lime-100 text-lime-700' },
           ].map((row) => (
             <div key={row.label} className="flex items-center gap-3">
               <span className={`flex h-9 w-9 items-center justify-center rounded-full ${row.color}`}>
@@ -228,13 +190,13 @@ export default function AboutUsContent() {
       <InnerPageHeroBanner
         title="About Us"
         breadcrumbCurrent="About"
-        subtitle="Built for better care—technology that gives clinicians time back and patients a smoother journey."
+        subtitle="We build websites, web applications, and mobile experiences that help businesses grow online."
       />
 
       <CapabilityMarquee />
 
       {/* Mission */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-24">
+      {/* <section className="relative overflow-hidden bg-white py-20 sm:py-24">
         <FloatingOrbs />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,180,216,0.08),transparent_45%),radial-gradient(ellipse_at_95%_35%,rgba(90,28,203,0.08),transparent_45%)]" />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -245,14 +207,14 @@ export default function AboutUsContent() {
                 Our story
               </p>
               <h2 className="ref-section-title mt-4 max-w-xl text-4xl leading-[1.08] sm:text-5xl">
-                Engineered for the people who deliver care
+                Engineered for growth across every digital channel
               </h2>
             </Animate>
             <Animate variant="left" delay={0.12}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--marketing-ink-muted,#5c6677)] sm:text-lg">
-                Medhostech Solutions exists to simplify healthcare operations—so physicians, nurses, and
-                administrators spend less time on screens and more time with patients. We combine deep
-                clinical understanding with modern software craft.
+                MedHostech Solutions delivers high-performance websites, web applications, e-commerce stores,
+                and mobile apps for startups, SMEs, and enterprises. We combine modern design with clean,
+                scalable code so your brand performs online.
               </p>
             </Animate>
 
@@ -292,100 +254,13 @@ export default function AboutUsContent() {
             <MissionVisual />
           </Animate>
         </div>
-      </section>
+      </section> */}
 
-      {/* Values */}
-      <section className="relative overflow-hidden bg-[#f4f5f9] py-18 sm:py-22">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Animate variant="down">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="ref-kicker mx-auto inline-flex text-sm">
-                <span className="ref-kicker-line" aria-hidden />
-                What guides us
-              </p>
-              <h2 className="ref-section-title mt-4 text-3xl sm:text-4xl md:text-5xl">
-                Principles behind every release
-              </h2>
-            </div>
-          </Animate>
+      <AboutMissionVisionValuesSection />
 
-          <motion.div
-            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={marketingViewport}
-          >
-            {VALUES.map((item) => {
-              const Icon = item.icon;
-              return (
-                <motion.article
-                  key={item.title}
-                  variants={staggerItem}
-                  whileHover={reduceMotion ? undefined : { y: -8 }}
-                  className="group relative overflow-hidden rounded-3xl bg-white p-6 shadow-[var(--marketing-shadow-card)] ring-1 ring-slate-100"
-                >
-                  <div
-                    className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${item.tone}`}
-                  >
-                    <Icon className="text-lg" aria-hidden />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#0E2238]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.desc}</p>
-                  <div
-                    className="pointer-events-none absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-[var(--brand-primary)]/5 transition-transform duration-500 group-hover:scale-150"
-                    aria-hidden
-                  />
-                </motion.article>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+      <AboutWhyChooseUsSection />
 
-      {/* Timeline */}
-      <section className="relative overflow-hidden bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Animate variant="down">
-            <div className="max-w-2xl">
-              <p className="ref-kicker text-sm">
-                <span className="ref-kicker-line" aria-hidden />
-                Our journey
-              </p>
-              <h2 className="ref-section-title mt-4 text-3xl sm:text-4xl">
-                Milestones that shaped our platform
-              </h2>
-            </div>
-          </Animate>
-
-          <ol className="relative mt-14 space-y-0">
-            <div
-              className="pointer-events-none absolute left-[1.15rem] top-2 hidden h-[calc(100%-2rem)] w-px bg-gradient-to-b from-[var(--brand-primary)] via-violet-400 to-rose-400 sm:left-1/2 sm:block sm:-translate-x-px"
-              aria-hidden
-            />
-            {MILESTONES.map((m, idx) => (
-              <Animate key={m.year} variant={idx % 2 === 0 ? 'left' : 'right'} delay={idx * 0.08}>
-                <li className="relative grid gap-6 pb-12 sm:grid-cols-2 sm:gap-12 sm:pb-16">
-                  <div className={`${idx % 2 === 1 ? 'sm:order-2 sm:text-left' : 'sm:text-right'}`}>
-                    <span className="inline-block rounded-full bg-[#EAF9FD] px-4 py-1 text-sm font-bold text-[var(--brand-primary)]">
-                      {m.year}
-                    </span>
-                    <h3 className="mt-3 text-xl font-bold text-[#0E2238] sm:text-2xl">{m.title}</h3>
-                    <p className="mt-2 max-w-md text-slate-600 leading-relaxed">{m.desc}</p>
-                  </div>
-                  <div className={`hidden sm:block ${idx % 2 === 1 ? 'sm:order-1' : ''}`} />
-                  <span
-                    className="absolute left-3 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-marketing-purple-gradient text-[10px] font-bold text-white shadow-marketing-purple-icon sm:left-1/2 sm:-translate-x-1/2"
-                    aria-hidden
-                  >
-                    {idx + 1}
-                  </span>
-                </li>
-              </Animate>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <AboutFaqSection />
 
       {/* Team gallery */}
       <section className="relative overflow-hidden border-y border-slate-200 bg-[#f4f5f9] py-16 sm:py-20">
@@ -394,9 +269,9 @@ export default function AboutUsContent() {
             <Animate variant="left" className="relative">
               <div className="grid grid-cols-2 gap-4 md:gap-5">
                 {[
-                  { src: '/assets/images/new/2.jpg', alt: 'Healthcare team collaboration', tall: false },
-                  { src: '/assets/images/new/3.jpg', alt: 'Clinical digital workflow', tall: false },
-                  { src: '/assets/images/new/4.jpg', alt: 'Medical analytics dashboard', tall: true },
+                  { src: '/assets/images/new/2.jpg', alt: 'Team planning a web project', tall: false },
+                  { src: '/assets/images/new/3.jpg', alt: 'Developer working on an application', tall: false },
+                  { src: '/assets/images/new/4.jpg', alt: 'Analytics dashboard on screen', tall: true },
                 ].map((img, i) => (
                   <motion.div
                     key={img.src}
@@ -421,40 +296,38 @@ export default function AboutUsContent() {
                 aria-hidden
               >
                 <FaClock className="text-[var(--brand-primary)]" />
-                <span className="text-sm font-semibold text-slate-700">Faster rounds, clearer charts</span>
+                <span className="text-sm font-semibold text-slate-700">Ship faster, scale smarter</span>
               </motion.div>
             </Animate>
 
             <div>
               <Animate variant="right">
                 <span className="inline-flex items-center rounded-full bg-[#EAF9FD] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#1B3045]">
-                  For care teams
+                  For growing brands
                 </span>
               </Animate>
               <Animate variant="right" delay={0.08}>
                 <h2 className="mt-5 text-3xl font-bold leading-tight text-[#0E2238] sm:text-4xl md:text-5xl">
-                  Less admin.
-                  <span className="mt-2 block text-[var(--brand-primary)]">More medicine.</span>
+                  Launch faster.
+                  <span className="mt-2 block text-[var(--brand-primary)]">Grow online.</span>
                 </h2>
               </Animate>
               <Animate variant="right" delay={0.16}>
                 <p className="mt-5 text-slate-600 leading-relaxed">
-                  Scheduling, documentation, follow-ups, and cross-department coordination live in one
-                  place—so the right patient context is always a click away.
+                  From marketing sites and e-commerce to custom web apps and mobile products—we design,
+                  build, and optimize experiences that turn visitors into customers.
                 </p>
               </Animate>
               <Animate variant="right" delay={0.24}>
                 <p className="mt-4 text-slate-600 leading-relaxed">
-                  Whether you run a single practice or a growing hospital network, we adapt implementation
-                  to your pace and train staff until workflows feel natural.
+                  Whether you need a new site, a platform rebuild, or ongoing support, we adapt delivery
+                  to your timeline and stay with you after launch.
                 </p>
               </Animate>
             </div>
           </div>
         </div>
       </section>
-
-      <AboutDeliverSection />
 
       <AboutCtaSection />
 
