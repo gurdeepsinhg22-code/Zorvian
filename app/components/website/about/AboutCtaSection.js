@@ -7,8 +7,8 @@ import Animate from '../Animate';
 
 const HIGHLIGHTS = [
   'Free discovery session',
-  'HIPAA-aware architecture review',
-  'Custom rollout timeline',
+  'Technical & UX review',
+  'Custom project timeline',
 ];
 
 export default function AboutCtaSection() {
@@ -34,11 +34,11 @@ export default function AboutCtaSection() {
                   Next steps
                 </p>
                 <h3 className="ref-section-title mt-4 text-3xl leading-[1.12] sm:text-4xl lg:text-[2.65rem]">
-                  Let&apos;s plan how Medhostech fits your care delivery
+                  Let&apos;s plan your next website or application
                 </h3>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-                  Tell us about your practice or hospital network—we&apos;ll walk through workflows, security, and a
-                  realistic go-live path with no pressure.
+                  Tell us about your goals, audience, and timeline—we&apos;ll walk through scope, technology, and a
+                  realistic delivery path with no pressure.
                 </p>
 
                 <ul className="mt-8 space-y-3">

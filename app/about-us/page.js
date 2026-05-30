@@ -2,9 +2,9 @@ import { buildSeoMetadata } from '../../lib/seo';
 import AboutUsContent from '../components/website/about/AboutUsContent';
 
 export const metadata = buildSeoMetadata({
-  title: 'About Us - Medhostech | Leading Healthcare IT Solutions & EHR Software India',
+  title: 'About Us | MedHostech Solutions – Web Development & Digital Products',
   description:
-    'Medhostech – Built for better care. Engineered to support healthcare professionals with faster, smarter workflows. Learn about our mission, values, and scale.',
+    'Learn about MedHostech Solutions—websites, web applications, mobile apps, and e-commerce built for performance, security, and business growth.',
   path: '/about-us',
 });
 
