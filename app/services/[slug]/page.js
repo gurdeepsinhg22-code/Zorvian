@@ -1,48 +1,12 @@
 import { notFound } from 'next/navigation';
-import InnerPageHeroBanner from '../../components/website/InnerPageHeroBanner';
-import SiteFooter from '../../components/website/SiteFooter';
+import ServiceDetailContent from '../../components/website/services/ServiceDetailContent';
 import { buildSeoMetadata } from '../../../lib/seo';
-import {
-  FaBolt,
-  FaBoxes,
-  FaBug,
-  FaChartLine,
-  FaCode,
-  FaCreditCard,
-  FaFileCode,
-  FaImage,
-  FaPaintBrush,
-  FaRocket,
-  FaServer,
-  FaShieldAlt,
-  FaSitemap,
-  FaSyncAlt,
-  FaTachometerAlt,
-} from 'react-icons/fa';
-
-const PROVIDE_ITEM_ICONS = {
-  'web-app-core': FaCode,
-  'web-backend-api': FaServer,
-  'web-architecture': FaSitemap,
-  'web-ui-ux': FaPaintBrush,
-  'maint-updates': FaSyncAlt,
-  'maint-security': FaShieldAlt,
-  'maint-bugs': FaBug,
-  'maint-performance': FaRocket,
-  'speed-monitoring': FaChartLine,
-  'speed-pagespeed': FaBolt,
-  'speed-code': FaFileCode,
-  'speed-image': FaImage,
-  'store-performance': FaTachometerAlt,
-  'payment-checkout': FaCreditCard,
-  'product-order': FaBoxes,
-  'security-data': FaShieldAlt,
-};
+import { enrichServicePage, getRelatedServices } from '../../../lib/marketing/serviceMeta';
 
 const servicePages = {
   'web-application-development': {
-    title: 'Web Application Development',
-    sectionTitle: 'Web Application Development',
+    title: 'Cloud Applications',
+    sectionTitle: 'Cloud Applications',
     description:
       'We design and develop modern web applications that deliver high performance, security, and seamless user experience across all browsers and devices. Our web applications are scalable, reliable, and tailored to meet specific business requirements.',
     intro:
@@ -53,7 +17,7 @@ const servicePages = {
     provideItems: [
       {
         iconKey: 'web-app-core',
-        title: 'Web Application Development',
+        title: 'Cloud Applications',
         text: 'We build secure, scalable, and high-performance web applications tailored to your business processes and operational needs.',
       },
       {
@@ -78,27 +42,27 @@ const servicePages = {
     faqTitle: 'Frequently Asked Question',
     faqs: [
       {
-        q: 'Do You Develop Apps for Both Android and iOS?',
-        a: 'Yes, we develop mobile applications for both Android and iOS platforms. We also offer cross-platform solutions to ensure wider reach and cost-effective development.',
+        q: 'What types of web applications do you build?',
+        a: 'We build dashboards, patient portals, internal tools, SaaS products, and custom business applications tailored to your workflows.',
       },
       {
-        q: 'Can You Customize Mobile Apps Based on Business Needs?',
-        a: 'Absolutely. We create fully customized mobile applications tailored to your business goals, target audience, and specific functional requirements.',
+        q: 'Can you integrate with our existing systems?',
+        a: 'Yes. We connect applications with CRMs, EHRs, payment gateways, and third-party APIs through secure integration layers.',
       },
       {
-        q: 'Will My Mobile App Be Secure and Scalable?',
-        a: 'Yes, we follow secure development practices and build scalable architectures to ensure your mobile application remains safe, reliable, and ready for future growth.',
+        q: 'How do you ensure application security?',
+        a: 'We follow secure coding practices, role-based access, encrypted data paths, and regular testing throughout the build.',
       },
       {
-        q: 'Do You Help with App Store Deployment?',
-        a: 'Yes, we assist with publishing your app on Google Play Store and Apple App Store, following all required guidelines.',
+        q: 'Do you provide support after launch?',
+        a: 'Yes. We offer maintenance, monitoring, and feature enhancements after go-live.',
       },
     ],
     secondProvideTitle: 'What We Provide',
-    provideBullets: ['Mobile Apps', 'Android Apps', 'iOS Apps', 'App Support', 'Cross-Platform', 'UI / UX Design'],
+    provideBullets: ['Custom Web Apps', 'API Development', 'Cloud Deployment', 'UI / UX Design', 'Integrations', 'Ongoing Support'],
   },
   'website-development': {
-    title: 'Website Development',
+    title: 'Digital Solutions',
     description:
       'We create modern business websites with clean structure, responsive layouts, and strong performance to help your brand stand out online.',
     intro:
@@ -117,11 +81,13 @@ const servicePages = {
     faqs: [
       { q: 'Do you build responsive websites?', a: 'Yes, all websites are fully responsive and tested across devices.' },
       { q: 'Can you redesign an existing site?', a: 'Yes, we can modernize your current site without losing critical content.' },
+      { q: 'How long does a typical website take?', a: 'Timelines depend on scope; most business sites launch within a few weeks to a few months.' },
+      { q: 'Will I be able to update content myself?', a: 'Yes. We integrate CMS workflows so your team can publish without coding.' },
     ],
   },
   'mobile-applications': {
-    title: 'Mobile Applications',
-    sectionTitle: 'Mobile Application Development',
+    title: 'Mobile Innovation',
+    sectionTitle: 'Mobile Innovation',
     description:
       'We design and develop modern mobile applications that deliver smooth performance and excellent user experience across Android and iOS platforms. Our mobile solutions are secure, scalable, and tailored to meet business objectives.',
     intro:
@@ -131,20 +97,20 @@ const servicePages = {
       'We provide end-to-end mobile application development services including planning, design, development, testing, and deployment. Our goal is to create mobile apps that are reliable, user-friendly, and business-focused.',
     provideItems: [
       {
-        title: 'Website Development',
-        text: 'We build fast, secure, and scalable websites tailored to your business needs and growth goals.',
+        title: 'Android Development',
+        text: 'Native-quality Android experiences optimized for performance and device diversity.',
       },
       {
-        title: 'Digital Marketing Solutions',
-        text: 'We help businesses increase visibility, generate leads, and grow online through effective digital marketing strategies.',
+        title: 'iOS Development',
+        text: 'Polished iPhone and iPad apps aligned with Apple guidelines and user expectations.',
       },
       {
-        title: 'Business Strategy & Planning',
-        text: 'We create data-driven strategies that align technology with your business objectives for long-term success.',
+        title: 'Cross-Platform Apps',
+        text: 'Shared codebases that accelerate delivery without sacrificing UX.',
       },
       {
         title: 'UI / UX Design',
-        text: 'We design intuitive and engaging user interfaces that enhance usability and improve customer experience.',
+        text: 'Intuitive interfaces that improve engagement and task completion.',
       },
     ],
     challengeTitle: 'The Challange',
@@ -180,8 +146,8 @@ const servicePages = {
     ],
   },
   'e-commerce-solutions': {
-    title: 'E-Commerce Solutions',
-    sectionTitle: 'E-Commerce Solutions',
+    title: 'Smart Commerce',
+    sectionTitle: 'Smart Commerce',
     description:
       'We provide complete e-commerce solutions designed to help businesses sell online efficiently and securely. Our approach focuses on creating user-friendly online stores that deliver smooth shopping experiences and drive conversions.',
     intro:
@@ -244,8 +210,8 @@ const servicePages = {
     ],
   },
   'website-maintenance-support': {
-    title: 'Website Maintenance & Support',
-    sectionTitle: 'Website Maintenance & Support',
+    title: 'Platform Care',
+    sectionTitle: 'Platform Care',
     description:
       'We provide reliable website maintenance and support services to ensure your website remains secure, updated, and fully functional at all times. Our solutions help businesses maintain smooth performance and avoid technical issues.',
     intro:
@@ -308,8 +274,8 @@ const servicePages = {
     ],
   },
   'speed-optimization-performance': {
-    title: 'Speed Optimization & Performance',
-    sectionTitle: 'Speed Optimization & Performance',
+    title: 'Core Web Vitals',
+    sectionTitle: 'Core Web Vitals',
     description:
       'We provide professional speed optimization and performance enhancement services to ensure your website loads faster and delivers a smooth user experience. Our solutions help improve website efficiency, reduce load times, and enhance overall performance.',
     intro:
@@ -378,127 +344,23 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const page = servicePages[params?.slug];
+  const resolved = await params;
+  const page = servicePages[resolved?.slug];
   if (!page) return { title: 'Service Not Found | MedHostech Solutions' };
   return buildSeoMetadata({
     title: `${page.title} – MedHostech Solutions`,
     description: page.description,
-    path: `/services/${params.slug}`,
+    path: `/services/${resolved.slug}`,
   });
 }
 
-export default function ServiceDetailPage({ params }) {
-  const page = servicePages[params?.slug];
-  if (!page) notFound();
+export default async function ServiceDetailPage({ params }) {
+  const resolved = await params;
+  const raw = servicePages[resolved?.slug];
+  if (!raw) notFound();
 
-  return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
-      <InnerPageHeroBanner title={page.title} breadcrumbCurrent={page.title} />
+  const page = enrichServicePage(resolved.slug, raw);
+  const related = getRelatedServices(resolved.slug, servicePages, 3);
 
-      <section className="relative overflow-hidden bg-white py-14 sm:py-16 md:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_10%_10%,rgba(129,94,220,0.12),transparent_45%),radial-gradient(ellipse_at_90%_20%,rgba(85,198,222,0.12),transparent_42%)]" />
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="relative overflow-hidden rounded-[2rem] border border-violet-200/50 bg-[linear-gradient(125deg,#ffffff_0%,#f4efff_45%,#eaf8ff_100%)] p-7 shadow-[0_28px_65px_-35px_rgba(91,42,191,0.45)] sm:p-10">
-            <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-violet-300/20 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-14 -left-8 h-44 w-44 rounded-full bg-cyan-300/20 blur-2xl" />
-            <p className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-violet-700">
-              <span className="h-2 w-2 rounded-full bg-violet-500" aria-hidden />
-              Service Overview
-            </p>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0E2238] sm:text-4xl md:text-5xl">
-              {page.sectionTitle ?? page.title}
-            </h2>
-            <p className="mt-5 max-w-4xl text-base leading-relaxed text-slate-700 sm:text-lg">{page.description}</p>
-            <p className="mt-4 max-w-4xl text-base leading-relaxed text-slate-700 sm:text-lg">{page.intro}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="/contact-us"
-                className="inline-flex items-center rounded-full bg-marketing-purple-gradient px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-marketing-purple-icon"
-              >
-                Start Project
-              </a>
-              <a
-                href="/our-services"
-                className="inline-flex items-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-[#0E2238] transition hover:border-violet-300 hover:text-violet-700"
-              >
-                All Services
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_48px_-30px_rgba(2,12,27,0.32)] sm:p-8">
-            <h3 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">{page.whatWeProvideTitle}</h3>
-            {page.whatWeProvideIntro ? (
-              <p className="mt-4 max-w-4xl text-base leading-relaxed text-slate-600 sm:text-lg">{page.whatWeProvideIntro}</p>
-            ) : null}
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              {page.provideItems.map((item) => {
-                const Icon = item.iconKey ? PROVIDE_ITEM_ICONS[item.iconKey] : null;
-                return (
-                <article
-                  key={item.title}
-                  className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-md"
-                >
-                  <div className="flex items-start gap-4">
-                    {Icon ? (
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-100 to-cyan-50 text-violet-700 ring-1 ring-violet-200/60">
-                        <Icon className="text-xl" aria-hidden />
-                      </span>
-                    ) : null}
-                    <div className="min-w-0 flex-1">
-                      <h4 className="text-lg font-bold text-[#0E2238]">{item.title}</h4>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">{item.text}</p>
-                    </div>
-                  </div>
-                </article>
-                );
-              })}
-            </div>
-          </div>
-
-          {page.secondProvideTitle && page.provideBullets?.length ? (
-            <div className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/95 p-6 shadow-[0_18px_48px_-30px_rgba(2,12,27,0.32)] sm:p-8">
-              <h3 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">{page.secondProvideTitle}</h3>
-              <ul className="mt-6 space-y-3 text-base leading-relaxed text-slate-700 sm:text-lg">
-                {page.provideBullets.map((line) => (
-                  <li key={line} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500" aria-hidden />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          <div className="mt-12 rounded-[2rem] border border-violet-200/70 bg-[linear-gradient(135deg,rgba(233,223,255,0.7)_0%,rgba(236,248,255,0.85)_100%)] p-6 sm:p-8">
-            <h3 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">{page.challengeTitle}</h3>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">{page.challenge}</p>
-          </div>
-
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">{page.faqTitle}</h3>
-            <div className="mt-6 space-y-4">
-              {page.faqs.map((faq, idx) => (
-                <details
-                  key={faq.q}
-                  className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-violet-200 hover:shadow-md open:border-violet-300 open:bg-violet-50/40 sm:p-6"
-                  open={idx === 0}
-                >
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-4 sm:items-center">
-                    <h4 className="min-w-0 flex-1 pt-0.5 text-lg font-bold leading-snug text-[#0E2238] sm:pt-0">{faq.q}</h4>
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center self-start rounded-full border border-slate-300 text-lg font-semibold leading-none text-slate-600 transition group-open:rotate-45 group-open:border-violet-300 group-open:text-violet-700 sm:self-center">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{faq.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <SiteFooter />
-    </main>
-  );
+  return <ServiceDetailContent page={page} related={related} />;
 }
