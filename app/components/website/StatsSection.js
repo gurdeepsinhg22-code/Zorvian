@@ -5,7 +5,7 @@ const statIcons = [FaClock, FaBolt, FaUserCheck, FaChartLine];
 
 export default function StatsSection({ stats }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0E2238] via-[#0F2E4A] to-[#0E2238] py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#0F2E4A] to-[#0a0a0a] py-20 sm:py-24">
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(0,180,216,0.15),transparent_50%)]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[var(--brand-primary)]/10 blur-[100px]" />
@@ -30,7 +30,7 @@ export default function StatsSection({ stats }) {
           </Animate>
           <Animate variant="down" delay={0.2}>
             <p className="mt-3 text-slate-400">
-              Medhostech helps clinics work faster, serve patients better, and save hours daily.
+              Zorvian Digital Solutions helps clinics work faster, serve patients better, and save hours daily.
             </p>
           </Animate>
         </div>

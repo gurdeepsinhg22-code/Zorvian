@@ -87,8 +87,8 @@ function FloatingOrbs() {
   return (
     <>
       <div className="process-float-slow pointer-events-none absolute left-[6%] top-[10%] h-28 w-28 rounded-full bg-cyan-400/25 blur-3xl" aria-hidden />
-      <div className="process-float-delayed pointer-events-none absolute right-[8%] top-[22%] h-36 w-36 rounded-full bg-violet-400/20 blur-3xl" aria-hidden />
-      <div className="process-float-slow pointer-events-none absolute bottom-[18%] left-[20%] h-24 w-24 rounded-full bg-rose-300/20 blur-2xl" aria-hidden />
+      <div className="process-float-delayed pointer-events-none absolute right-[8%] top-[22%] h-36 w-36 rounded-full bg-sky-400/20 blur-3xl" aria-hidden />
+      <div className="process-float-slow pointer-events-none absolute bottom-[18%] left-[20%] h-24 w-24 rounded-full bg-sky-300/20 blur-2xl" aria-hidden />
     </>
   );
 }
@@ -127,7 +127,7 @@ function MissionVisual() {
           transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
           aria-hidden
         >
-          <div className="h-[420px] w-[420px] rounded-full border border-dashed border-violet-300/50 sm:h-[460px] sm:w-[460px]" />
+          <div className="h-[420px] w-[420px] rounded-full border border-dashed border-sky-300/50 sm:h-[460px] sm:w-[460px]" />
         </motion.div>
       )}
 
@@ -138,7 +138,7 @@ function MissionVisual() {
       >
         <Image
           src="/assets/images/about-growth-right.png"
-          alt="MedHostech digital solutions team"
+          alt="Zorvian Digital Solutions digital solutions team"
           fill
           sizes="400px"
           className="object-cover object-top"
@@ -186,7 +186,7 @@ export default function AboutUsContent() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner
         title="About Us"
         breadcrumbCurrent="About"
@@ -198,7 +198,7 @@ export default function AboutUsContent() {
       {/* Mission */}
       {/* <section className="relative overflow-hidden bg-white py-20 sm:py-24">
         <FloatingOrbs />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,180,216,0.08),transparent_45%),radial-gradient(ellipse_at_95%_35%,rgba(90,28,203,0.08),transparent_45%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,180,216,0.08),transparent_45%),radial-gradient(ellipse_at_95%_35%,rgba(0,82,212,0.08),transparent_45%)]" />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <Animate variant="left">
@@ -212,7 +212,7 @@ export default function AboutUsContent() {
             </Animate>
             <Animate variant="left" delay={0.12}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--marketing-ink-muted,#5c6677)] sm:text-lg">
-                MedHostech Solutions delivers high-performance websites, web applications, e-commerce stores,
+                Zorvian Digital Solutions delivers high-performance websites, web applications, e-commerce stores,
                 and mobile apps for startups, SMEs, and enterprises. We combine modern design with clean,
                 scalable code so your brand performs online.
               </p>
@@ -231,7 +231,7 @@ export default function AboutUsContent() {
                   variants={staggerItem}
                   className="hover-lift rounded-2xl bg-gradient-to-br from-slate-50 to-white p-5 ring-1 ring-slate-100"
                 >
-                  <p className="text-3xl font-bold text-[#0E2238] sm:text-4xl">
+                  <p className="text-3xl font-bold text-[#0a0a0a] sm:text-4xl">
                     <AnimatedCounter
                       value={stat.value}
                       suffix={stat.suffix}
@@ -302,12 +302,12 @@ export default function AboutUsContent() {
 
             <div>
               <Animate variant="right">
-                <span className="inline-flex items-center rounded-full bg-[#EAF9FD] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#1B3045]">
+                <span className="inline-flex items-center rounded-full bg-[#EAF9FD] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#111111]">
                   For growing brands
                 </span>
               </Animate>
               <Animate variant="right" delay={0.08}>
-                <h2 className="mt-5 text-3xl font-bold leading-tight text-[#0E2238] sm:text-4xl md:text-5xl">
+                <h2 className="mt-5 text-3xl font-bold leading-tight text-[#0a0a0a] sm:text-4xl md:text-5xl">
                   Launch faster.
                   <span className="mt-2 block text-[var(--brand-primary)]">Grow online.</span>
                 </h2>

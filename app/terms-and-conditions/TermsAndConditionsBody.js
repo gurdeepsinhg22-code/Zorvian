@@ -3,7 +3,7 @@
  */
 export default function TermsAndConditionsBody() {
   return (
-    <div className="prose prose-slate max-w-none text-slate-600 prose-headings:text-[#0E2238] prose-a:text-[var(--brand-primary)] prose-strong:text-slate-800">
+    <div className="prose prose-slate max-w-none text-slate-600 prose-headings:text-[#0a0a0a] prose-a:text-[var(--brand-primary)] prose-strong:text-slate-800">
       <p className="text-sm font-medium text-slate-500">Last updated: February 7, 2026</p>
       <p className="lead mt-4 text-slate-700">
         Please read these Terms and Conditions carefully before using Our Service.
@@ -30,7 +30,7 @@ export default function TermsAndConditionsBody() {
         </li>
         <li>
           <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-          &quot;Our&quot; in this Agreement) refers to Medhostechsolutions, Medhostechsolutions.
+          &quot;Our&quot; in this Agreement) refers to Zorvian Digital Solutions.
         </li>
         <li>
           <strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a
@@ -49,8 +49,7 @@ export default function TermsAndConditionsBody() {
           Service.
         </li>
         <li>
-          <strong>Website</strong> refers to Medhostechsolutions, accessible from{' '}
-          <a href="https://medhostechsolutions.com">https://medhostechsolutions.com</a>
+          <strong>Website</strong> refers to Zorvian Digital Solutions, accessible from this website.
         </li>
         <li>
           <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal
@@ -207,8 +206,8 @@ export default function TermsAndConditionsBody() {
 
       <p className="mt-10 border-t border-slate-200 pt-8 text-sm text-slate-500">
         Questions? Contact us at{' '}
-        <a href="mailto:Info@medhostech.com" className="font-medium">
-          Info@medhostech.com
+        <a href="mailto:amiedhiman@gmail.com" className="font-medium">
+          amiedhiman@gmail.com
         </a>
         .
       </p>

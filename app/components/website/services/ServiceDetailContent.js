@@ -31,7 +31,7 @@ function FaqList({ faqs, accent }) {
             key={faq.q}
             layout={reduceMotion ? false : 'position'}
             className={`overflow-hidden rounded-2xl border bg-white transition-colors ${
-              isOpen ? 'border-violet-300 shadow-md' : 'border-slate-200 shadow-sm'
+              isOpen ? 'border-sky-300 shadow-md' : 'border-slate-200 shadow-sm'
             }`}
           >
             <button
@@ -40,7 +40,7 @@ function FaqList({ faqs, accent }) {
               className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
               aria-expanded={isOpen}
             >
-              <span className="text-base font-bold leading-snug text-[#0E2238] sm:text-lg">{faq.q}</span>
+              <span className="text-base font-bold leading-snug text-[#0a0a0a] sm:text-lg">{faq.q}</span>
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border ${accent.pill}`}
@@ -73,7 +73,7 @@ export default function ServiceDetailContent({ page, related }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner
         title={page.title}
         breadcrumbCurrent={page.title}
@@ -109,7 +109,7 @@ export default function ServiceDetailContent({ page, related }) {
                 </Link>
                 <Link
                   href="/our-services"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-[#0E2238] transition hover:border-violet-200 hover:bg-violet-50"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-[#0a0a0a] transition hover:border-sky-200 hover:bg-sky-50"
                 >
                   All services
                 </Link>
@@ -118,13 +118,13 @@ export default function ServiceDetailContent({ page, related }) {
 
             <Animate variant="right" delay={0.1}>
               <div className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-[var(--marketing-shadow-card)] sm:p-8">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#5a1ccb]">At a glance</p>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#0052d4]">At a glance</p>
                 <ul className="mt-5 space-y-4">
                   {page.outcomes.slice(0, 3).map((item) => (
                     <li key={item.title} className="flex items-stretch gap-3">
                       <span className={`w-1 shrink-0 rounded-full ${page.accent.bar}`} aria-hidden />
                       <div className="min-w-0 flex-1 py-0.5">
-                        <p className="font-semibold leading-snug text-[#0E2238]">{item.title}</p>
+                        <p className="font-semibold leading-snug text-[#0a0a0a]">{item.title}</p>
                         <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.desc}</p>
                       </div>
                     </li>
@@ -166,14 +166,14 @@ export default function ServiceDetailContent({ page, related }) {
                   key={item.title}
                   variants={staggerItem}
                   whileHover={reduceMotion ? undefined : { y: -6 }}
-                  className="group rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-[0_20px_45px_-18px_rgba(90,28,203,0.15)]"
+                  className="group rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-[0_20px_45px_-18px_rgba(0,82,212,0.15)]"
                 >
                   <div className={`inline-flex rounded-2xl bg-gradient-to-br ${page.accent.gradient} p-[2px]`}>
-                    <span className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-white text-violet-700">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-white text-sky-700">
                       <Icon className="text-lg" aria-hidden />
                     </span>
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-[#0E2238]">{item.title}</h3>
+                  <h3 className="mt-4 text-lg font-bold text-[#0a0a0a]">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">{item.text}</p>
                 </motion.article>
               );
@@ -183,7 +183,7 @@ export default function ServiceDetailContent({ page, related }) {
           {page.secondProvideTitle && page.provideBullets?.length ? (
             <Animate variant="up" delay={0.1}>
               <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-[#0E2238]">{page.secondProvideTitle}</h3>
+                <h3 className="text-xl font-bold text-[#0a0a0a]">{page.secondProvideTitle}</h3>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {page.provideBullets.map((line) => (
                     <li key={line} className="flex items-center gap-2 text-sm font-medium text-slate-700">
@@ -228,7 +228,7 @@ export default function ServiceDetailContent({ page, related }) {
                 <span className={`font-mono text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r ${page.accent.gradient}`}>
                   {step.step}
                 </span>
-                <h3 className="mt-3 text-lg font-bold text-[#0E2238]">{step.title}</h3>
+                <h3 className="mt-3 text-lg font-bold text-[#0a0a0a]">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.desc}</p>
               </motion.li>
             ))}
@@ -237,12 +237,12 @@ export default function ServiceDetailContent({ page, related }) {
       </section>
 
       {/* NEW: Outcomes */}
-      <section className="relative bg-[#0E2238] py-16 text-white sm:py-20">
+      <section className="relative bg-[#0a0a0a] py-16 text-white sm:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-30"
           style={{
             background:
-              'radial-gradient(ellipse at 20% 0%, rgba(0,180,216,0.25), transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(90,28,203,0.3), transparent 45%)',
+              'radial-gradient(ellipse at 20% 0%, rgba(0,180,216,0.25), transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(0,82,212,0.3), transparent 45%)',
           }}
           aria-hidden
         />
@@ -269,7 +269,7 @@ export default function ServiceDetailContent({ page, related }) {
               >
                 <FaCheck className="text-cyan-300" aria-hidden />
                 <h3 className="mt-3 font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-violet-100/85">{item.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-sky-100/85">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -282,8 +282,8 @@ export default function ServiceDetailContent({ page, related }) {
           <div className="grid gap-10 lg:grid-cols-2">
             <Animate variant="left">
               <div className="flex items-center gap-2">
-                <FaUsers className="text-[#5a1ccb]" aria-hidden />
-                <h2 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">Ideal for</h2>
+                <FaUsers className="text-[#0052d4]" aria-hidden />
+                <h2 className="text-2xl font-bold text-[#0a0a0a] sm:text-3xl">Ideal for</h2>
               </div>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {page.idealFor.map((label) => (
@@ -299,7 +299,7 @@ export default function ServiceDetailContent({ page, related }) {
             <Animate variant="right" delay={0.08}>
               <div className="flex items-center gap-2">
                 <FaLightbulb className="text-[var(--brand-primary)]" aria-hidden />
-                <h2 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">Tools & stack</h2>
+                <h2 className="text-2xl font-bold text-[#0a0a0a] sm:text-3xl">Tools & stack</h2>
               </div>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {page.techStack.map((label) => (
@@ -320,8 +320,8 @@ export default function ServiceDetailContent({ page, related }) {
       <section className="relative bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Animate variant="scale">
-            <div className="overflow-hidden rounded-3xl border border-violet-200/60 bg-gradient-to-br from-violet-50 via-white to-cyan-50 p-8 sm:p-10">
-              <h2 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">{page.challengeTitle}</h2>
+            <div className="overflow-hidden rounded-3xl border border-sky-200/60 bg-gradient-to-br from-sky-50 via-white to-cyan-50 p-8 sm:p-10">
+              <h2 className="text-2xl font-bold text-[#0a0a0a] sm:text-3xl">{page.challengeTitle}</h2>
               <p className="mt-4 max-w-4xl text-base leading-relaxed text-slate-700 sm:text-lg">{page.challenge}</p>
             </div>
           </Animate>
@@ -353,11 +353,11 @@ export default function ServiceDetailContent({ page, related }) {
                 <Animate key={item.slug} variant="up" delay={idx * 0.08}>
                   <Link
                     href={`/services/${item.slug}`}
-                    className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-200 hover:shadow-md"
+                    className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-md"
                   >
-                    <h3 className="text-lg font-bold text-[#0E2238] group-hover:text-[#5a1ccb]">{item.title}</h3>
+                    <h3 className="text-lg font-bold text-[#0a0a0a] group-hover:text-[#0052d4]">{item.title}</h3>
                     <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#5a1ccb]">
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#0052d4]">
                       View service
                       <FaArrowRight className="text-xs transition group-hover:translate-x-1" aria-hidden />
                     </span>
@@ -373,7 +373,7 @@ export default function ServiceDetailContent({ page, related }) {
       <section className="relative overflow-hidden bg-[#F6FCFF] py-16 sm:py-20">
         <Animate variant="up">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="overflow-hidden rounded-[2rem] bg-marketing-purple-gradient p-8 text-white shadow-[0_28px_70px_-24px_rgba(90,28,203,0.5)] sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
+            <div className="overflow-hidden rounded-[2rem] bg-marketing-purple-gradient p-8 text-white shadow-[0_28px_70px_-24px_rgba(0,82,212,0.5)] sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">Let&apos;s build</p>
                 <h3 className="mt-2 text-2xl font-bold sm:text-3xl">Ready to start {page.title}?</h3>
@@ -381,7 +381,7 @@ export default function ServiceDetailContent({ page, related }) {
               </div>
               <Link
                 href="/contact-us"
-                className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#5a1ccb] shadow-lg sm:mt-0"
+                className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#0052d4] shadow-lg sm:mt-0"
               >
                 Contact us
                 <FaArrowRight className="text-xs" aria-hidden />

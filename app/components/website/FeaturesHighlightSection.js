@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowRight, FaAward, FaCode, FaHeadset, FaPhone } from 'react-icons/fa';
+import { FaArrowRight, FaAward, FaCode, FaHeadset, FaEnvelope } from 'react-icons/fa';
 import Animate from './Animate';
 
 const iconWrap =
@@ -32,7 +32,7 @@ export default function FeaturesHighlightSection() {
           {/* Image + offset lavender panel */}
           <Animate variant="left" className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
             <div
-              className="absolute -left-3 -top-3 h-[88%] w-[88%] rounded-2xl bg-gradient-to-br from-violet-50/90 to-purple-50/80 sm:-left-4 sm:-top-4"
+              className="absolute -left-3 -top-3 h-[88%] w-[88%] rounded-2xl bg-gradient-to-br from-sky-50/90 to-blue-50/80 sm:-left-4 sm:-top-4"
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg">
@@ -76,20 +76,20 @@ export default function FeaturesHighlightSection() {
               <div className="flex flex-col gap-6 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
                 <Link href="/about-us" className="ref-cta-primary group w-fit">
                   learn more
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#5A1CCB] transition group-hover:translate-x-0.5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#0052D4] transition group-hover:translate-x-0.5">
                     <FaArrowRight className="text-xs" aria-hidden />
                   </span>
                 </Link>
                 <a
-                  href="tel:+917018347459"
+                  href="mailto:amiedhiman@gmail.com"
                   className="flex items-center gap-3 text-[#0f2744]"
                 >
                   <span className="bg-marketing-purple-gradient shadow-marketing-purple-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white">
-                    <FaPhone className="text-sm" aria-hidden />
+                    <FaEnvelope className="text-sm" aria-hidden />
                   </span>
                   <span className="leading-tight">
-                    <span className="block text-xs font-bold uppercase tracking-wide text-slate-500">Call Us Now</span>
-                    <span className="block text-base font-bold sm:text-lg">+91 7018347459</span>
+                    <span className="block text-xs font-bold uppercase tracking-wide text-slate-500">Email Us</span>
+                    <span className="block text-base font-bold sm:text-lg">amiedhiman@gmail.com</span>
                   </span>
                 </a>
               </div>

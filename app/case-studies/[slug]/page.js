@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
   if (!study) return { title: 'Case Study Not Found' };
 
   return buildSeoMetadata({
-    title: `${study.title} Case Study | MedHostech Solutions`,
+    title: `${study.title} Case Study | Zorvian Digital Solutions`,
     description: study.metaDescription,
     path: `/case-studies/${study.slug}`,
     ogImage: study.image.startsWith('http')
@@ -30,9 +30,9 @@ export default async function CaseStudyDetailPage({ params }) {
   if (!study) notFound();
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <WebPageJsonLd
-        name={`${study.title} Case Study | MedHostech Solutions`}
+        name={`${study.title} Case Study | Zorvian Digital Solutions`}
         description={study.metaDescription}
         url={`/case-studies/${study.slug}`}
       />

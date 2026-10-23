@@ -49,9 +49,9 @@ function Reveal({ children, className = '', delay = 0, variant = 'up' }) {
 function FloatingOrbs() {
   return (
     <>
-      <div className="process-float-slow pointer-events-none absolute left-[8%] top-[12%] h-24 w-24 rounded-full bg-violet-400/20 blur-2xl" aria-hidden />
+      <div className="process-float-slow pointer-events-none absolute left-[8%] top-[12%] h-24 w-24 rounded-full bg-sky-400/20 blur-2xl" aria-hidden />
       <div className="process-float-delayed pointer-events-none absolute right-[10%] top-[28%] h-32 w-32 rounded-full bg-cyan-400/20 blur-2xl" aria-hidden />
-      <div className="process-float-slow pointer-events-none absolute bottom-[20%] left-[15%] h-20 w-20 rounded-full bg-rose-400/15 blur-2xl" aria-hidden />
+      <div className="process-float-slow pointer-events-none absolute bottom-[20%] left-[15%] h-20 w-20 rounded-full bg-sky-400/15 blur-2xl" aria-hidden />
     </>
   );
 }
@@ -68,10 +68,10 @@ function RoadmapPath({ progress }) {
     >
       <defs>
         <linearGradient id="processGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#5a1ccb" />
-          <stop offset="35%" stopColor="#0891b2" />
-          <stop offset="70%" stopColor="#7c3aed" />
-          <stop offset="100%" stopColor="#e11d48" />
+          <stop offset="0%" stopColor="#0052d4" />
+          <stop offset="35%" stopColor="#00a8e8" />
+          <stop offset="70%" stopColor="#0077dd" />
+          <stop offset="100%" stopColor="#00c2ff" />
         </linearGradient>
         <filter id="processGlow">
           <feGaussianBlur stdDeviation="3" result="blur" />
@@ -108,7 +108,7 @@ function JourneyStrip({ activeIndex }) {
       <div className="relative flex items-center justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-2 shadow-lg backdrop-blur-sm">
         <div className="absolute left-4 right-4 top-1/2 h-1 -translate-y-1/2 rounded-full bg-slate-100" aria-hidden />
         <motion.div
-          className="absolute left-4 top-1/2 h-1 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#5a1ccb] via-[#0891b2] to-[#e11d48]"
+          className="absolute left-4 top-1/2 h-1 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#0052d4] via-[#00a8e8] to-[#00c2ff]"
           initial={{ width: '0%' }}
           animate={{ width: `${(activeIndex / (processSteps.length - 1)) * 100}%` }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -219,7 +219,7 @@ function StepNode({ index, isLast, isActive }) {
             <p className={`mt-4 text-xs font-bold uppercase tracking-[0.22em] text-slate-400 ${isLeft ? 'lg:text-right' : ''}`}>
               {step.tagline}
             </p>
-            <h3 className={`mt-2 text-2xl font-bold tracking-tight text-[#0E2238] sm:text-[1.75rem] ${isLeft ? 'lg:text-right' : ''}`}>
+            <h3 className={`mt-2 text-2xl font-bold tracking-tight text-[#0a0a0a] sm:text-[1.75rem] ${isLeft ? 'lg:text-right' : ''}`}>
               {step.title}
             </h3>
             <p className={`mt-4 text-base leading-relaxed text-slate-600 ${isLeft ? 'lg:text-right' : ''}`}>{step.description}</p>
@@ -255,8 +255,8 @@ function StepNode({ index, isLast, isActive }) {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 520px"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0E2238]/70 via-[#0E2238]/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0E2238]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a]/70 via-[#0a0a0a]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">Milestone</p>
             <p className="mt-1 text-lg font-bold text-white sm:text-xl">{step.tagline}</p>
@@ -338,13 +338,13 @@ export default function OurProcessRoadmap() {
               <motion.div
                 key={stat.label}
                 variants={staggerItem}
-                className="process-stat-card group relative overflow-hidden rounded-2xl border border-white/80 bg-white/90 p-5 text-center shadow-[0_12px_40px_-12px_rgba(90,28,203,0.2)] backdrop-blur-sm"
+                className="process-stat-card group relative overflow-hidden rounded-2xl border border-white/80 bg-white/90 p-5 text-center shadow-[0_12px_40px_-12px_rgba(0,82,212,0.2)] backdrop-blur-sm"
               >
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 opacity-0 transition group-hover:opacity-100"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/5 to-cyan-500/5 opacity-0 transition group-hover:opacity-100"
                   aria-hidden
                 />
-                <p className="relative text-2xl font-bold text-[#5a1ccb] sm:text-3xl">{stat.value}</p>
+                <p className="relative text-2xl font-bold text-[#0052d4] sm:text-3xl">{stat.value}</p>
                 <p className="relative mt-1 text-sm font-bold text-slate-800">{stat.label}</p>
                 <p className="relative text-[10px] font-semibold uppercase tracking-wider text-slate-400">{stat.sub}</p>
               </motion.div>
@@ -357,7 +357,7 @@ export default function OurProcessRoadmap() {
       <section className="relative bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10 text-center">
-            <h3 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">Built on three principles</h3>
+            <h3 className="text-2xl font-bold text-[#0a0a0a] sm:text-3xl">Built on three principles</h3>
             <p className="mx-auto mt-2 max-w-xl text-slate-600">How we keep every engagement predictable and enjoyable.</p>
           </Reveal>
           <motion.div
@@ -369,7 +369,7 @@ export default function OurProcessRoadmap() {
           >
             {processPrinciples.map((p, i) => {
               const PIcon = PRINCIPLE_ICONS[p.icon] || FaShieldAlt;
-              const accents = ['#5a1ccb', '#0891b2', '#e11d48'];
+              const accents = ['#0052d4', '#00a8e8', '#00c2ff'];
               return (
                 <motion.div
                   key={p.title}
@@ -382,7 +382,7 @@ export default function OurProcessRoadmap() {
                   >
                     <PIcon className="text-lg" />
                   </div>
-                  <h4 className="text-lg font-bold text-[#0E2238]">{p.title}</h4>
+                  <h4 className="text-lg font-bold text-[#0a0a0a]">{p.title}</h4>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.description}</p>
                 </motion.div>
               );
@@ -394,10 +394,10 @@ export default function OurProcessRoadmap() {
       {/* Roadmap */}
       <section
         ref={containerRef}
-        className="process-roadmap-section relative overflow-hidden bg-[#0E2238] py-16 sm:py-20 md:py-28"
+        className="process-roadmap-section relative overflow-hidden bg-[#0a0a0a] py-16 sm:py-20 md:py-28"
       >
         <div className="process-roadmap-grid pointer-events-none absolute inset-0 opacity-[0.08]" aria-hidden />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(90,28,203,0.25),transparent)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(0,82,212,0.25),transparent)]" aria-hidden />
         <FloatingOrbs />
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -449,7 +449,7 @@ export default function OurProcessRoadmap() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#5A1CCB] shadow-xl transition hover:scale-[1.02] hover:shadow-2xl"
+                className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#0052D4] shadow-xl transition hover:scale-[1.02] hover:shadow-2xl"
               >
                 Get a free consultation
                 <FaArrowRight className="text-xs" />

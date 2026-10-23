@@ -1,5 +1,6 @@
 import {
   FaArrowRight,
+  FaBullhorn,
   FaDesktop,
   FaMobileAlt,
   FaShoppingCart,
@@ -15,40 +16,53 @@ const ring = (gradient) =>
 
 /** Default hover surface for service cells */
 const defaultCellHover =
-  'hover:bg-violet-400 focus-within:bg-violet-400 hover:shadow-[0_20px_45px_-10px_rgba(109,40,217,0.35)] focus-within:shadow-[0_20px_45px_-10px_rgba(109,40,217,0.35)]';
+  'hover:bg-sky-400 focus-within:bg-sky-400 hover:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.35)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.35)]';
 
-/** Violet → magenta hover — Website Development only */
+/** Electric blue hover — Digital Marketing (first) */
+const digitalMarketingCellHover =
+  'hover:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] focus-within:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.45)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.45)]';
+
+/** Deep blue hover — Website Development */
 const websiteDevCellHover =
-  'hover:bg-[linear-gradient(90deg,#9255CE_-2.17%,#be60ff_100%)] focus-within:bg-[linear-gradient(90deg,#9255CE_-2.17%,#be60ff_100%)] hover:shadow-[0_20px_45px_-10px_rgba(146,85,206,0.42)] focus-within:shadow-[0_20px_45px_-10px_rgba(146,85,206,0.42)]';
+  'hover:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] focus-within:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.42)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.42)]';
 
-/** Coral/peach hover — used only on Mobile Applications */
+/** Bright cyan hover — Mobile Applications */
 const mobileAppsCellHover =
-  'hover:bg-[linear-gradient(90deg,#FF7469_-2.17%,#FFB06D_100%)] focus-within:bg-[linear-gradient(90deg,#FF7469_-2.17%,#FFB06D_100%)] hover:shadow-[0_20px_45px_-10px_rgba(255,116,105,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(255,116,105,0.38)]';
+  'hover:bg-[linear-gradient(90deg,#0077DD_-2.17%,#00D4FF_100%)] focus-within:bg-[linear-gradient(90deg,#0077DD_-2.17%,#00D4FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,119,221,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,119,221,0.38)]';
 
-/** Cyan/teal hover — E-Commerce Solutions only */
+/** Cyan/teal hover — E-Commerce Solutions */
 const ecommerceCellHover =
-  'hover:bg-[linear-gradient(90deg,#34AACF_-2.17%,#30D8DF_100%)] focus-within:bg-[linear-gradient(90deg,#34AACF_-2.17%,#30D8DF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(52,170,207,0.4)] focus-within:shadow-[0_20px_45px_-10px_rgba(52,170,207,0.4)]';
+  'hover:bg-[linear-gradient(90deg,#0088F0_-2.17%,#00C2FF_100%)] focus-within:bg-[linear-gradient(90deg,#0088F0_-2.17%,#00C2FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,136,240,0.4)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,136,240,0.4)]';
 
-/** Amber → magenta hover — Web Application Development only */
+/** Mid blue hover — Web Application Development */
 const webAppCellHover =
-  'hover:bg-[linear-gradient(90deg,#FFA835_-3.85%,#FA3DCC_97.3%,#FA3AD0_100%)] focus-within:bg-[linear-gradient(90deg,#FFA835_-3.85%,#FA3DCC_97.3%,#FA3AD0_100%)] hover:shadow-[0_20px_45px_-10px_rgba(250,61,204,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(250,61,204,0.38)]';
+  'hover:bg-[linear-gradient(90deg,#003DB8_-2.17%,#00A8FF_100%)] focus-within:bg-[linear-gradient(90deg,#003DB8_-2.17%,#00A8FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,61,184,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,61,184,0.38)]';
 
-/** Blue → aqua hover — Website Maintenance & Support only */
+/** Blue → aqua hover — Website Maintenance & Support */
 const maintenanceCellHover =
-  'hover:bg-[linear-gradient(85deg,#0050FF_-0.78%,#00E9CC_97.77%)] focus-within:bg-[linear-gradient(85deg,#0050FF_-0.78%,#00E9CC_97.77%)] hover:shadow-[0_20px_45px_-10px_rgba(0,80,255,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,80,255,0.38)]';
+  'hover:bg-[linear-gradient(85deg,#0052D4_-0.78%,#00C2FF_97.77%)] focus-within:bg-[linear-gradient(85deg,#0052D4_-0.78%,#00C2FF_97.77%)] hover:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.38)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.38)]';
 
-/** Purple hover — Speed Optimization & Performance only */
+/** Electric blue hover — Speed Optimization & Performance */
 const speedOptCellHover =
-  'hover:bg-[linear-gradient(90deg,#5A1CCB_-2.17%,#815EDC_100%)] focus-within:bg-[linear-gradient(90deg,#5A1CCB_-2.17%,#815EDC_100%)] hover:shadow-[0_20px_45px_-10px_rgba(90,28,203,0.42)] focus-within:shadow-[0_20px_45px_-10px_rgba(90,28,203,0.42)]';
+  'hover:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] focus-within:bg-[linear-gradient(90deg,#0052D4_-2.17%,#00C2FF_100%)] hover:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.42)] focus-within:shadow-[0_20px_45px_-10px_rgba(0,82,212,0.42)]';
 
 const items = [
+  {
+    href: '/digital-marketing',
+    title: 'Digital Marketing',
+    desc: 'SEO, paid media, social, email, and CRO — a creative growth engine built to convert.',
+    icon: FaBullhorn,
+    ring: 'from-[#0052d4] to-[#00c2ff]',
+    iconClass: 'text-[#0052d4]',
+    cellHover: digitalMarketingCellHover,
+  },
   {
     href: '/services/website-development',
     title: 'Digital Solutions',
     desc: 'Custom business websites, corporate sites, and landing pages built with modern technologies.',
     icon: FaDesktop,
-    ring: 'from-violet-500 to-fuchsia-500',
-    iconClass: 'text-violet-600',
+    ring: 'from-sky-500 to-cyan-500',
+    iconClass: 'text-sky-600',
     cellHover: websiteDevCellHover,
   },
   {
@@ -56,8 +70,8 @@ const items = [
     title: 'Mobile Innovation',
     desc: 'Scalable mobile applications built with modern frameworks to deliver seamless performance across devices.',
     icon: FaMobileAlt,
-    ring: 'from-orange-400 to-rose-500',
-    iconClass: 'text-orange-600',
+    ring: 'from-blue-500 to-sky-400',
+    iconClass: 'text-blue-600',
     cellHover: mobileAppsCellHover,
   },
   {
@@ -65,8 +79,8 @@ const items = [
     title: 'Smart Commerce',
     desc: 'WooCommerce and custom e-commerce websites with secure payment integration.',
     icon: FaShoppingCart,
-    ring: 'from-cyan-400 to-teal-500',
-    iconClass: 'text-teal-600',
+    ring: 'from-cyan-400 to-sky-500',
+    iconClass: 'text-cyan-600',
     cellHover: ecommerceCellHover,
   },
   {
@@ -74,8 +88,8 @@ const items = [
     title: 'Cloud Applications',
     desc: 'Scalable web apps using modern frameworks tailored to your business needs.',
     icon: FaLaptopCode,
-    ring: 'from-pink-400 to-orange-400',
-    iconClass: 'text-pink-600',
+    ring: 'from-blue-600 to-cyan-400',
+    iconClass: 'text-blue-700',
     cellHover: webAppCellHover,
   },
   {
@@ -92,8 +106,8 @@ const items = [
     title: 'Core Web Vitals',
     desc: 'Improve website loading speed, Core Web Vitals, and overall performance for better user experience and SEO rankings.',
     icon: FaTachometerAlt,
-    ring: 'from-blue-500 to-violet-600',
-    iconClass: 'text-violet-600',
+    ring: 'from-blue-500 to-sky-600',
+    iconClass: 'text-sky-600',
     cellHover: speedOptCellHover,
   },
 ];
@@ -154,10 +168,10 @@ export default function ServicesGridSection() {
                     </p>
                     <Link
                       href={item.href}
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#5a1ccb] transition-colors duration-300 group-hover/service:text-white group-focus-within/service:text-white motion-reduce:transition-none"
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[#0052d4] transition-colors duration-300 group-hover/service:text-white group-focus-within/service:text-white motion-reduce:transition-none"
                     >
                       <span>Read more</span>
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet-100 text-[#5a1ccb] ring-1 ring-violet-200/80 transition-colors duration-300 group-hover/service:bg-white/25 group-hover/service:text-white group-hover/service:ring-white/40 group-focus-within/service:bg-white/25 group-focus-within/service:text-white group-focus-within/service:ring-white/40">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[#0052d4] ring-1 ring-sky-200/80 transition-colors duration-300 group-hover/service:bg-white/25 group-hover/service:text-white group-hover/service:ring-white/40 group-focus-within/service:bg-white/25 group-focus-within/service:text-white group-focus-within/service:ring-white/40">
                         <FaArrowRight className="text-xs" aria-hidden />
                       </span>
                     </Link>
@@ -171,7 +185,7 @@ export default function ServicesGridSection() {
         <div className="mt-10 text-center md:mt-12">
           <a
             href="/our-services"
-            className="inline-flex flex-wrap items-center justify-center gap-1 text-sm font-semibold text-rose-600 underline-offset-4 transition hover:text-orange-600 hover:underline sm:text-base"
+            className="inline-flex flex-wrap items-center justify-center gap-1 text-sm font-semibold text-sky-600 underline-offset-4 transition hover:text-blue-700 hover:underline sm:text-base"
           >
             Want to see our professional services.
             <span className="whitespace-nowrap">Click here to View More</span>

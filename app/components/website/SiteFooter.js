@@ -7,7 +7,8 @@ import Image from 'next/image';
 const BG_FALLBACK = '#0f172a';
 
 const FOOTER_BG_URL = '/assets/images/footer-bg.png';
-const FOOTER_LOGO_URL = '/assets/images/medhostech-solutions-logo.png';
+const FOOTER_LOGO_URL = '/assets/images/zorvian-digital-logo.png';
+const FOOTER_LOGO_ALT = 'Zorvian Digital Solutions';
 
 const companyLinks = [
   { href: '/', label: 'Home' },
@@ -15,12 +16,12 @@ const companyLinks = [
   { href: '/our-services', label: 'Our Services' },
   { href: '/our-process', label: 'Our Process' },
   { href: '/contact-us', label: 'Contact Us' },
-  { href: '/blog', label: 'Blog' },
   { href: '/case-studies', label: 'Case Studies' },
 ];
 
 /** Service detail pages (matches /services/[slug] routes) */
 const serviceLinks = [
+  { href: '/digital-marketing', label: 'Digital Marketing' },
   { href: '/services/website-development', label: 'Digital Solutions' },
   { href: '/services/mobile-applications', label: 'Mobile Innovation' },
   { href: '/services/e-commerce-solutions', label: 'Smart Commerce' },
@@ -74,13 +75,17 @@ export default function SiteFooter() {
           {/* Right: logo, copy, link columns (~66%) */}
           <div className="flex flex-col gap-10 lg:col-span-8 lg:pl-2 xl:pl-6">
             <div>
-              <a href="/" className="relative inline-block h-[52px] w-[min(100%,280px)] sm:h-[58px] sm:max-w-[320px]">
+              <a
+                href="/"
+                className="inline-flex w-fit max-w-full items-center rounded-xl bg-white/95 px-3 py-2"
+              >
                 <Image
                   src={FOOTER_LOGO_URL}
-                  alt="MedHostech Solutions"
-                  fill
-                  className="object-contain object-left"
-                  sizes="(max-width: 640px) 85vw, 320px"
+                  alt={FOOTER_LOGO_ALT}
+                  width={320}
+                  height={160}
+                  className="h-16 w-auto max-w-[280px] object-contain object-left sm:h-[4.5rem] sm:max-w-[340px]"
+                  sizes="340px"
                   priority={false}
                 />
               </a>
@@ -117,7 +122,7 @@ export default function SiteFooter() {
         <div className="mx-auto max-w-[1200px] px-5 py-5 sm:px-6 sm:py-[22px] lg:px-8">
           <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between md:gap-6 md:pr-14">
             <p className="order-2 text-center text-[13px] leading-relaxed text-white/55 md:order-1 md:text-left">
-              © Copyright 2026 By MedHostechSolutions.com
+              © Copyright 2026 By Zorvian Digital Solutions
             </p>
             <div className="order-1 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[13px] text-white/80 md:order-2 md:justify-end">
               <a href="/privacy-policy" className="transition hover:text-white">

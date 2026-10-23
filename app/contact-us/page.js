@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Animate from '../components/website/Animate';
 import InnerPageHeroBanner from '../components/website/InnerPageHeroBanner';
 import SiteFooter from '../components/website/SiteFooter';
-import { FaArrowRight, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaArrowRight, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const SERVICE_TYPES = [
   'Web Design',
@@ -44,21 +44,15 @@ export default function ContactUsPage() {
       href: null,
     },
     {
-      icon: FaPhone,
-      label: 'Phone Number',
-      value: '+91 7018347459',
-      href: 'tel:+917018347459',
-    },
-    {
       icon: FaEnvelope,
       label: 'Email Address',
-      value: 'Info@medhostech.com',
-      href: 'mailto:Info@medhostech.com',
+      value: 'amiedhiman@gmail.com',
+      href: 'mailto:amiedhiman@gmail.com',
     },
   ];
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner title="Contact Us" breadcrumbCurrent="Contact Us" />
 
       {/* Contact — headline + form (left) | divider | details (right) */}
@@ -66,9 +60,9 @@ export default function ContactUsPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mx-auto max-w-4xl text-center">
             <Animate variant="down">
-              <p className="flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#5a1ccb] sm:text-xs">
+              <p className="flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0052d4] sm:text-xs">
                 <span
-                  className="inline-block h-0 w-0 border-b-[7px] border-l-[5px] border-r-[5px] border-b-violet-600 border-l-transparent border-r-transparent"
+                  className="inline-block h-0 w-0 border-b-[7px] border-l-[5px] border-r-[5px] border-b-sky-600 border-l-transparent border-r-transparent"
                   aria-hidden
                 />
                 Contact Us
@@ -85,7 +79,7 @@ export default function ContactUsPage() {
           <div className="mt-12 grid gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-stretch lg:gap-0">
             {/* Form card */}
             <Animate variant="up" delay={0.06} className="min-w-0 lg:pr-10 xl:pr-14">
-              <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_24px_70px_-28px_rgba(90,28,203,0.18)] sm:p-8 md:p-10">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_24px_70px_-28px_rgba(0,82,212,0.18)] sm:p-8 md:p-10">
                 <h3 className="text-xl font-bold text-[#111827] sm:text-2xl">Contact Me</h3>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -95,7 +89,7 @@ export default function ContactUsPage() {
                         htmlFor="firstName"
                         className="mb-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600"
                       >
-                        First Name<span className="text-rose-500">*</span>
+                        First Name<span className="text-sky-500">*</span>
                       </label>
                       <input
                         id="firstName"
@@ -105,7 +99,7 @@ export default function ContactUsPage() {
                         value={formData.firstName}
                         onChange={handleChange}
                         placeholder="First Name"
-                        className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-violet-300 focus:bg-white focus:ring-2 focus:ring-violet-100"
+                        className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-sky-300 focus:bg-white focus:ring-2 focus:ring-sky-100"
                       />
                     </div>
                     <div>
@@ -113,7 +107,7 @@ export default function ContactUsPage() {
                         htmlFor="phone"
                         className="mb-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600"
                       >
-                        Phone Number<span className="text-rose-500">*</span>
+                        Phone Number<span className="text-sky-500">*</span>
                       </label>
                       <input
                         id="phone"
@@ -123,7 +117,7 @@ export default function ContactUsPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Phone Number"
-                        className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-violet-300 focus:bg-white focus:ring-2 focus:ring-violet-100"
+                        className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-sky-300 focus:bg-white focus:ring-2 focus:ring-sky-100"
                       />
                     </div>
                   </div>
@@ -133,7 +127,7 @@ export default function ContactUsPage() {
                       htmlFor="email"
                       className="mb-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600"
                     >
-                      Email Address<span className="text-rose-500">*</span>
+                      Email Address<span className="text-sky-500">*</span>
                     </label>
                     <input
                       id="email"
@@ -143,7 +137,7 @@ export default function ContactUsPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Email Address"
-                      className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-violet-300 focus:bg-white focus:ring-2 focus:ring-violet-100"
+                      className="w-full rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-sky-300 focus:bg-white focus:ring-2 focus:ring-sky-100"
                     />
                   </div>
 
@@ -152,7 +146,7 @@ export default function ContactUsPage() {
                       htmlFor="message"
                       className="mb-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600"
                     >
-                      Message<span className="text-rose-500">*</span>
+                      Message<span className="text-sky-500">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -162,7 +156,7 @@ export default function ContactUsPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Type Your Message"
-                      className="w-full resize-y rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-violet-300 focus:bg-white focus:ring-2 focus:ring-violet-100"
+                      className="w-full resize-y rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition placeholder:text-slate-400 focus:border-sky-300 focus:bg-white focus:ring-2 focus:ring-sky-100"
                     />
                   </div>
 
@@ -171,7 +165,7 @@ export default function ContactUsPage() {
                       htmlFor="serviceType"
                       className="mb-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-600"
                     >
-                      Select Service Type<span className="text-rose-500">*</span>
+                      Select Service Type<span className="text-sky-500">*</span>
                     </label>
                     <select
                       id="serviceType"
@@ -179,7 +173,7 @@ export default function ContactUsPage() {
                       required
                       value={formData.serviceType}
                       onChange={handleChange}
-                      className="w-full appearance-none rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition focus:border-violet-300 focus:bg-white focus:ring-2 focus:ring-violet-100"
+                      className="w-full appearance-none rounded-lg border border-slate-200/90 bg-slate-100/90 px-4 py-3 text-sm text-[#111827] outline-none transition focus:border-sky-300 focus:bg-white focus:ring-2 focus:ring-sky-100"
                     >
                       <option value="">Select service</option>
                       {SERVICE_TYPES.map((t) => (
@@ -196,7 +190,7 @@ export default function ContactUsPage() {
                         type="checkbox"
                         checked={captchaAccepted}
                         onChange={(e) => setCaptchaAccepted(e.target.checked)}
-                        className="h-4 w-4 shrink-0 rounded border-slate-300 text-violet-600 focus:ring-violet-500"
+                        className="h-4 w-4 shrink-0 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
                       />
                       <span className="text-sm font-medium text-slate-700">I&apos;m not a robot</span>
                     </label>
@@ -208,7 +202,7 @@ export default function ContactUsPage() {
                   <button
                     type="submit"
                     disabled={!captchaAccepted}
-                    className="group sheen-hover inline-flex w-full items-center justify-center gap-3 rounded-full bg-marketing-purple-gradient px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_12px_32px_-8px_rgba(90,28,203,0.45)] transition enabled:hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-45 sm:w-auto"
+                    className="group sheen-hover inline-flex w-full items-center justify-center gap-3 rounded-full bg-marketing-purple-gradient px-8 py-4 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_12px_32px_-8px_rgba(0,82,212,0.45)] transition enabled:hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-45 sm:w-auto"
                   >
                     Send Message
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f4a23a] text-[#111827] transition group-hover:translate-x-0.5">
@@ -221,7 +215,7 @@ export default function ContactUsPage() {
 
             {/* Vertical divider */}
             <div
-              className="hidden w-1.5 shrink-0 justify-self-center self-stretch rounded-full bg-gradient-to-b from-[#5a1ccb] via-[#815edc] to-[#5a1ccb] lg:block"
+              className="hidden w-1.5 shrink-0 justify-self-center self-stretch rounded-full bg-gradient-to-b from-[#0052d4] via-[#00c2ff] to-[#0052d4] lg:block"
               aria-hidden
             />
 
@@ -230,7 +224,7 @@ export default function ContactUsPage() {
               <div className="flex flex-col justify-center gap-10 lg:min-h-[320px] lg:py-4">
                 {contactInfo.map((item, idx) => (
                   <div key={item.label} className="flex items-start gap-5">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#ede9fe] text-[#5a1ccb] shadow-sm ring-1 ring-violet-200/60">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#e8f4ff] text-[#0052d4] shadow-sm ring-1 ring-sky-200/60">
                       <item.icon className="text-xl" />
                     </div>
                     <div className="min-w-0 pt-0.5">
@@ -238,7 +232,7 @@ export default function ContactUsPage() {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="mt-1 block text-sm font-normal leading-relaxed text-slate-600 transition hover:text-[#5a1ccb] sm:text-base"
+                          className="mt-1 block text-sm font-normal leading-relaxed text-slate-600 transition hover:text-[#0052d4] sm:text-base"
                         >
                           {item.value}
                         </a>
@@ -250,13 +244,11 @@ export default function ContactUsPage() {
                 ))}
 
                 <a
-                  href="https://wa.me/917018347459"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 self-start rounded-full border border-emerald-200 bg-white px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm transition hover:bg-emerald-50"
+                  href="mailto:amiedhiman@gmail.com"
+                  className="inline-flex items-center gap-3 self-start rounded-full border border-sky-200 bg-white px-5 py-2.5 text-sm font-semibold text-sky-700 shadow-sm transition hover:bg-sky-50"
                 >
-                  <FaWhatsapp className="text-xl text-[#25D366]" />
-                  WhatsApp
+                  <FaEnvelope className="text-xl text-[var(--brand-primary)]" />
+                  Email Us
                 </a>
               </div>
             </Animate>

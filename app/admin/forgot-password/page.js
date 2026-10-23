@@ -42,8 +42,8 @@ export default function AdminForgotPasswordPage() {
       <div className="flex items-center justify-center px-6 py-10 sm:px-10 min-h-screen">
         <div className="w-full max-w-md">
           <div className="mb-8 flex flex-col items-center gap-2">
-            <div className="h-16 w-16 rounded-2xl shadow-md grid place-items-center overflow-hidden">
-              <img src="/assets/images/med_logo.png" alt={`${appName} Logo`} className="h-full w-full object-contain" />
+            <div className="h-14 w-48 rounded-2xl bg-white shadow-md grid place-items-center overflow-hidden px-2">
+              <img src="/assets/images/zorvian-digital-logo.png" alt={`${appName} Logo`} className="h-16 w-full object-contain" />
             </div>
             <p className="text-xl font-semibold text-[#111827]">{appName}</p>
           </div>

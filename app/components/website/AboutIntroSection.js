@@ -21,7 +21,7 @@ export default function AboutIntroSection() {
 
           <Animate variant="right" delay={0.08}>
             <p className="text-base leading-relaxed text-[var(--marketing-ink-muted,#5c6677)] sm:text-lg">
-              MedHostech Solutions is a trusted web development company focused on creating fast, secure, and
+              Zorvian Digital Solutions is a trusted web development company focused on creating fast, secure, and
               user-friendly websites. We specialize in custom development, CMS solutions, and business websites that
               convert visitors into customers.
             </p>

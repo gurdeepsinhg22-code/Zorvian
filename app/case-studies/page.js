@@ -9,7 +9,7 @@ import { caseStudies } from '../../lib/marketing/caseStudies';
 import { FaArrowRight } from 'react-icons/fa';
 
 export const metadata = buildSeoMetadata({
-  title: 'Case Studies | MedHostech Solutions',
+  title: 'Case Studies | Zorvian Digital Solutions',
   description:
     'Explore real client projects: healthcare, wellness, and e-commerce websites built with modern design, performance, and scalable development.',
   path: '/case-studies',
@@ -17,9 +17,9 @@ export const metadata = buildSeoMetadata({
 
 export default function CaseStudiesPage() {
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <WebPageJsonLd
-        name="Case Studies | MedHostech Solutions"
+        name="Case Studies | Zorvian Digital Solutions"
         description="Real client projects showcasing web development, performance, and modern design for healthcare and business."
         url="/case-studies"
       />
@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0E2238 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0a0a0a 1px, transparent 0)`,
             backgroundSize: '32px 32px',
           }}
           aria-hidden
@@ -65,7 +65,7 @@ export default function CaseStudiesPage() {
                       </span>
                     </div>
                     <div className="flex min-h-[220px] flex-1 flex-col p-6 sm:p-8">
-                      <h2 className="text-xl font-bold leading-snug text-[#0E2238] transition-colors group-hover:text-[var(--brand-primary)] sm:text-2xl">
+                      <h2 className="text-xl font-bold leading-snug text-[#0a0a0a] transition-colors group-hover:text-[var(--brand-primary)] sm:text-2xl">
                         {study.title}
                       </h2>
                       <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -93,8 +93,8 @@ export default function CaseStudiesPage() {
           </div>
 
           <Animate variant="up" delay={0.2}>
-            <div className="mt-16 rounded-2xl border border-violet-200/60 bg-gradient-to-br from-violet-50 via-white to-cyan-50 px-6 py-10 text-center sm:px-10 sm:py-12">
-              <h2 className="text-2xl font-bold text-[#0E2238] sm:text-3xl">Ready to start your project?</h2>
+            <div className="mt-16 rounded-2xl border border-sky-200/60 bg-gradient-to-br from-sky-50 via-white to-cyan-50 px-6 py-10 text-center sm:px-10 sm:py-12">
+              <h2 className="text-2xl font-bold text-[#0a0a0a] sm:text-3xl">Ready to start your project?</h2>
               <p className="mx-auto mt-3 max-w-xl text-slate-600">
                 Tell us about your goals—we will help you plan, design, and launch a solution tailored to your business.
               </p>

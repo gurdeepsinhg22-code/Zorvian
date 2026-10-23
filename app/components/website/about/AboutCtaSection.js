@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FaArrowRight, FaCalendarCheck, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaArrowRight, FaCalendarCheck, FaEnvelope } from 'react-icons/fa';
 import Animate from '../Animate';
 
 const HIGHLIGHTS = [
@@ -17,11 +17,11 @@ export default function AboutCtaSection() {
   return (
     <section className="relative overflow-hidden bg-[#F6FCFF] py-20 sm:py-28">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(0,180,216,0.12),transparent_50%),radial-gradient(ellipse_at_90%_80%,rgba(90,28,203,0.1),transparent_45%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(0,180,216,0.12),transparent_50%),radial-gradient(ellipse_at_90%_80%,rgba(0,82,212,0.1),transparent_45%)]"
         aria-hidden
       />
       <div className="process-float-slow pointer-events-none absolute left-[8%] top-[20%] h-32 w-32 rounded-full bg-cyan-400/20 blur-3xl" aria-hidden />
-      <div className="process-float-delayed pointer-events-none absolute right-[10%] bottom-[15%] h-36 w-36 rounded-full bg-violet-400/15 blur-3xl" aria-hidden />
+      <div className="process-float-delayed pointer-events-none absolute right-[10%] bottom-[15%] h-36 w-36 rounded-full bg-sky-400/15 blur-3xl" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Animate variant="up">
@@ -29,8 +29,8 @@ export default function AboutCtaSection() {
             <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
               {/* Copy */}
               <div className="border-b border-slate-100 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-12 xl:p-14">
-                <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5a1ccb]">
-                  <span className="h-[3px] w-[10px] rotate-45 bg-violet-500" aria-hidden />
+                <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#0052d4]">
+                  <span className="h-[3px] w-[10px] rotate-45 bg-sky-500" aria-hidden />
                   Next steps
                 </p>
                 <h3 className="ref-section-title mt-4 text-3xl leading-[1.12] sm:text-4xl lg:text-[2.65rem]">
@@ -54,7 +54,7 @@ export default function AboutCtaSection() {
               </div>
 
               {/* Actions */}
-              <div className="flex flex-col justify-center bg-gradient-to-br from-[#0E2238] via-[#1a2744] to-[#241b4d] p-8 sm:p-10 lg:p-12">
+              <div className="flex flex-col justify-center bg-gradient-to-br from-[#0a0a0a] via-[#1a2744] to-[#241b4d] p-8 sm:p-10 lg:p-12">
                 <div className="flex items-center gap-3 text-cyan-200/90">
                   <FaCalendarCheck className="text-lg" aria-hidden />
                   <p className="text-sm font-semibold uppercase tracking-[0.12em]">Book a conversation</p>
@@ -84,18 +84,11 @@ export default function AboutCtaSection() {
 
                 <div className="mt-10 space-y-3 border-t border-white/10 pt-8">
                   <a
-                    href="mailto:Info@medhostech.com"
-                    className="flex items-center gap-3 text-sm text-violet-100/90 transition hover:text-white"
+                    href="mailto:amiedhiman@gmail.com"
+                    className="flex items-center gap-3 text-sm text-sky-100/90 transition hover:text-white"
                   >
                     <FaEnvelope className="shrink-0 text-cyan-300" aria-hidden />
-                    Info@medhostech.com
-                  </a>
-                  <a
-                    href="tel:+917018347459"
-                    className="flex items-center gap-3 text-sm text-violet-100/90 transition hover:text-white"
-                  >
-                    <FaPhone className="shrink-0 text-cyan-300" aria-hidden />
-                    +91 7018347459
+                    amiedhiman@gmail.com
                   </a>
                 </div>
               </div>

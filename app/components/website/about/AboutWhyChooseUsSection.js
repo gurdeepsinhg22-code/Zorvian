@@ -30,22 +30,22 @@ const REASONS = [
     icon: FaShieldAlt,
     title: 'Security built in',
     desc: 'Secure architecture, encryption, and best-practice controls on every project.',
-    bar: 'bg-violet-500',
-    iconTone: 'bg-violet-50 text-violet-700',
+    bar: 'bg-sky-500',
+    iconTone: 'bg-sky-50 text-sky-700',
   },
   {
     icon: FaUsersCog,
     title: 'End-to-end partnership',
     desc: 'Strategy, design, development, and optimization—from discovery through launch.',
-    bar: 'bg-emerald-500',
-    iconTone: 'bg-emerald-50 text-emerald-700',
+    bar: 'bg-blue-500',
+    iconTone: 'bg-blue-50 text-blue-700',
   },
   {
     icon: FaRocket,
     title: 'Faster time to market',
     desc: 'Agile delivery and proven playbooks so you ship on schedule without cutting quality.',
-    bar: 'bg-amber-500',
-    iconTone: 'bg-amber-50 text-amber-700',
+    bar: 'bg-[#0088f0]',
+    iconTone: 'bg-sky-50 text-sky-700',
   },
   {
     icon: FaMobileAlt,
@@ -58,8 +58,8 @@ const REASONS = [
     icon: FaChartLine,
     title: 'Measurable outcomes',
     desc: 'Performance, conversions, and engagement tracked so progress stays visible.',
-    bar: 'bg-rose-500',
-    iconTone: 'bg-rose-50 text-rose-700',
+    bar: 'bg-sky-500',
+    iconTone: 'bg-sky-50 text-sky-700',
   },
 ];
 
@@ -86,7 +86,7 @@ function ReasonCard({ item, index }) {
     <motion.article
       variants={staggerItem}
       whileHover={reduceMotion ? undefined : { y: -4 }}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_8px_30px_-14px_rgba(15,23,42,0.12)] transition-shadow duration-300 hover:shadow-[0_20px_44px_-16px_rgba(90,28,203,0.15)]"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_8px_30px_-14px_rgba(15,23,42,0.12)] transition-shadow duration-300 hover:shadow-[0_20px_44px_-16px_rgba(0,82,212,0.15)]"
     >
       <div className={`h-1 w-full ${item.bar} opacity-80 transition-opacity group-hover:opacity-100`} aria-hidden />
       <div className="flex flex-1 gap-4 p-5 sm:p-5">
@@ -97,7 +97,7 @@ function ReasonCard({ item, index }) {
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline justify-between gap-2">
-            <h3 className="text-[15px] font-bold leading-snug text-[#0E2238] sm:text-base">{item.title}</h3>
+            <h3 className="text-[15px] font-bold leading-snug text-[#0a0a0a] sm:text-base">{item.title}</h3>
             <span className="shrink-0 font-mono text-[10px] font-bold text-slate-300">
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -119,7 +119,7 @@ export default function AboutWhyChooseUsSection() {
       aria-labelledby="why-choose-us-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(0,180,216,0.07),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(90,28,203,0.06),transparent_50%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,rgba(0,180,216,0.07),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(0,82,212,0.06),transparent_50%)]"
         aria-hidden
       />
 
@@ -134,7 +134,7 @@ export default function AboutWhyChooseUsSection() {
               id="why-choose-us-heading"
               className="ref-section-title mt-4 text-3xl sm:text-4xl md:text-[2.65rem] md:leading-[1.12]"
             >
-              Why choose MedHostech Solutions
+              Why choose Zorvian Digital Solutions
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--marketing-ink-muted,#5c6677)] sm:text-lg">
               We build every kind of website and application—with aligned delivery and support after launch.
@@ -171,7 +171,7 @@ export default function AboutWhyChooseUsSection() {
                 sizes="(max-width: 1024px) 100vw, 480px"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E2238]/55 via-[#0E2238]/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/55 via-[#0a0a0a]/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7">
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-cyan-200/90">
                   Full-stack digital partner
@@ -192,7 +192,7 @@ export default function AboutWhyChooseUsSection() {
                   viewport={marketingViewport}
                   transition={{ ...marketingTransition, delay: 0.1 + i * 0.08 }}
                 >
-                  <p className="text-xl font-bold text-[#0E2238] sm:text-2xl">{stat.value}</p>
+                  <p className="text-xl font-bold text-[#0a0a0a] sm:text-2xl">{stat.value}</p>
                   <p className="mt-0.5 text-[11px] font-medium text-slate-500 sm:text-xs">{stat.label}</p>
                 </motion.div>
               ))}

@@ -4,9 +4,9 @@ import SiteFooter from '../components/website/SiteFooter';
 import { buildSeoMetadata } from '../../lib/seo';
 
 export const metadata = buildSeoMetadata({
-  title: 'Products - Medhostech | EHR & Healthcare Management Solutions',
+  title: 'Products - Zorvian Digital Solutions | EHR & Healthcare Management Solutions',
   description:
-    'Explore Medhostech product ecosystem: Patient Management, Staff Management, Telemedicine, Appointment Management, Billing, and Roster Management for healthcare.',
+    'Explore Zorvian Digital Solutions product ecosystem: Patient Management, Staff Management, Telemedicine, Appointment Management, Billing, and Roster Management for healthcare.',
   path: '/products',
 });
 
@@ -32,7 +32,7 @@ async function getProducts() {
 export default async function ProductsPage() {
   const products = await getProducts();
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner
         title="Products"
         breadcrumbCurrent="Products"
@@ -44,7 +44,7 @@ export default async function ProductsPage() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0E2238 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0a0a0a 1px, transparent 0)`,
             backgroundSize: '24px 24px',
           }}
         />
@@ -52,11 +52,11 @@ export default async function ProductsPage() {
           <div className="mx-auto max-w-2xl text-center">
             <Animate variant="down">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-primary)]">
-                Medhostech Product Ecosystem
+                Zorvian Digital Solutions Product Ecosystem
               </p>
             </Animate>
             <Animate variant="down" delay={0.12}>
-              <h2 className="mt-4 text-3xl font-bold text-[#0E2238] md:text-4xl">
+              <h2 className="mt-4 text-3xl font-bold text-[#0a0a0a] md:text-4xl">
                 Comprehensive Healthcare Solutions
               </h2>
             </Animate>
@@ -82,7 +82,7 @@ export default async function ProductsPage() {
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-100 bg-[#EAF9FD] text-xl font-bold text-[var(--brand-primary)] transition group-hover:scale-105">
                       {product.title.charAt(0)}
                     </div>
-                    <h3 className="mt-6 text-xl font-bold text-[#0E2238]">{product.title}</h3>
+                    <h3 className="mt-6 text-xl font-bold text-[#0a0a0a]">{product.title}</h3>
                     <p className="mt-3 text-slate-600">{product.subtitle}</p>
                     <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-primary)]">
                       Learn more <span className="transition group-hover:translate-x-1">→</span>

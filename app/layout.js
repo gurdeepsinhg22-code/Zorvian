@@ -12,11 +12,11 @@ const inter = Inter({
 });
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://medhostech.com';
-const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || process.env.APP_NAME || 'Medhostech';
+const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || process.env.APP_NAME || 'Zorvian Digital Solutions';
 const APP_DESCRIPTION =
   process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
   process.env.APP_DESCRIPTION ||
-  'MedHostech Solutions — web development, web applications, and custom digital solutions for modern businesses.';
+  'Zorvian Digital Solutions — web development, web applications, and custom digital solutions for modern businesses.';
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
@@ -26,9 +26,14 @@ export const metadata = {
   },
   description: APP_DESCRIPTION,
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 

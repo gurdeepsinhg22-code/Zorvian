@@ -31,11 +31,11 @@ export default function InnerPageHeroBanner({
           </h1>
         </Animate>
         <Animate variant="up" delay={0.1}>
-          <nav className="mt-5 inline-flex max-w-[calc(100vw-2rem)] flex-wrap items-center justify-center gap-2 rounded-full border border-violet-300/40 bg-[#0E2238]/75 px-5 py-2 text-sm font-semibold text-white/95 shadow-[0_8px_28px_rgba(14,34,56,0.28)] backdrop-blur-sm">
+          <nav className="mt-5 inline-flex max-w-[calc(100vw-2rem)] flex-wrap items-center justify-center gap-2 rounded-full border border-sky-300/40 bg-[#0a0a0a]/75 px-5 py-2 text-sm font-semibold text-white/95 shadow-[0_8px_28px_rgba(14,34,56,0.28)] backdrop-blur-sm">
             <a href="/" className="shrink-0 transition hover:text-white">
               Home
             </a>
-            <span className="shrink-0 text-violet-300/90">↔</span>
+            <span className="shrink-0 text-sky-300/90">↔</span>
             <span className="max-w-[min(100vw-8rem,28rem)] text-center text-[#ffb84f] break-words">{current}</span>
           </nav>
         </Animate>

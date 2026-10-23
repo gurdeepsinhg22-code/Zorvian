@@ -89,16 +89,16 @@ export default function Sidebar({
         <div className="flex-shrink-0 h-16 px-4 flex items-center justify-center border-b border-white/[0.06]">
           <Link
             href="/dashboard"
-            className="block w-full h-10 max-w-[180px]"
+            className="block h-12 w-full max-w-[200px]"
             onClick={() => onMobileMenuToggle?.()}
           >
-            <span className="relative block w-full h-full">
+            <span className="relative block h-full w-full rounded-md bg-white px-1.5 py-0.5">
               <Image
-                src="/assets/images/med_logo.png"
-                alt="Medhostech"
+                src="/assets/images/zorvian-digital-logo.png"
+                alt="Zorvian Digital Solutions"
                 fill
                 sizes="(max-width: 768px) 288px, 272px"
-                className="object-contain object-center brightness-0 invert drop-shadow-[0_2px_12px_rgba(0,180,216,0.2)]"
+                className="object-contain object-center"
               />
             </span>
           </Link>

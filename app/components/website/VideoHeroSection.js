@@ -89,7 +89,7 @@ export default function VideoHeroSection() {
             <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.45)] sm:text-5xl md:text-6xl lg:text-[3.75rem]">
               Navigate your{' '}
               <span className="text-cyan-300">digital</span>{' '}
-              <span className="text-violet-300">next</span>
+              <span className="text-sky-300">next</span>
             </h1>
           </Animate>
 

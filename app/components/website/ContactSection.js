@@ -13,7 +13,7 @@ export default function ContactSection() {
             </p>
           </Animate>
           <Animate variant="left" delay={0.12}>
-            <h2 className="mt-3 text-3xl font-bold text-[#0E2238] md:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold text-[#0a0a0a] md:text-4xl">
               Let&apos;s Build Better Healthcare Experiences Together
             </h2>
           </Animate>
@@ -25,13 +25,9 @@ export default function ContactSection() {
           </Animate>
           <Animate variant="left" delay={0.36}>
             <div className="hover-lift mt-7 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm backdrop-blur">
-              <p className="text-sm font-semibold text-[#1B3045]">Call Us</p>
-              <a href="tel:+917018347459" className="mt-1 block text-lg font-bold text-[var(--brand-primary)]">
-                +91 7018347459
-              </a>
-              <p className="mt-4 text-sm font-semibold text-[#1B3045]">Email</p>
-              <a href="mailto:info@medhostech.com" className="mt-1 block text-base text-slate-700">
-                info@medhostech.com
+              <p className="text-sm font-semibold text-[#111111]">Email</p>
+              <a href="mailto:amiedhiman@gmail.com" className="mt-1 block text-lg font-bold text-[var(--brand-primary)]">
+                amiedhiman@gmail.com
               </a>
             </div>
           </Animate>
@@ -75,7 +71,7 @@ export default function ContactSection() {
           </div>
           <button
             type="button"
-            className="btn-glow sheen-hover mt-6 inline-flex rounded-full bg-[#000137] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0f1f53]"
+            className="btn-glow sheen-hover mt-6 inline-flex rounded-full bg-[#0a0a0a] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0f1f53]"
           >
             Send Message
           </button>

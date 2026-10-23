@@ -48,12 +48,12 @@ export default function AboutSection() {
           {/* Right: Text content */}
           <div>
             <Animate variant="right">
-              <span className="inline-flex items-center rounded-full bg-[#EAF9FD] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#1B3045]">
+              <span className="inline-flex items-center rounded-full bg-[#EAF9FD] px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#111111]">
                 Healthcare Professionals
               </span>
             </Animate>
             <Animate variant="right" delay={0.08}>
-              <h2 className="mt-5 text-2xl font-bold leading-tight text-[#0E2238] sm:text-3xl md:text-4xl">
+              <h2 className="mt-5 text-2xl font-bold leading-tight text-[#0a0a0a] sm:text-3xl md:text-4xl">
                 Engineered for
                 <span className="mt-2 block text-3xl sm:text-4xl md:text-5xl">Healthcare Professionals</span>
               </h2>

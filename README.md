@@ -1,6 +1,6 @@
 # MedAccess Admin (Frontend)
 
-Next.js frontend for the MedHostech Admin Portal. All API requests are handled by **medaccess-admin-backend** (separate repo/service).
+Next.js frontend for the Zorvian Digital Solutions Admin Portal. All API requests are handled by **medaccess-admin-backend** (separate repo/service).
 
 ## API / Backend
 

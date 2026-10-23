@@ -74,7 +74,7 @@ function SectionTitle({ kicker, title, light = false }) {
         viewport={sectionViewport}
         transition={{ ...marketingTransition, delay: 0.06 }}
         className={`mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.75rem] md:leading-[1.1] ${
-          light ? 'text-white' : 'text-[#0E2238]'
+          light ? 'text-white' : 'text-[#0a0a0a]'
         }`}
       >
         {title}
@@ -122,7 +122,7 @@ export default function CaseStudyDetailContent({ study }) {
         ref={heroRef}
         className="relative min-h-[min(100vh,920px)] overflow-hidden bg-[#060d18] text-white"
       >
-        <FloatingOrb className="left-[5%] top-[12%] h-64 w-64 bg-violet-600/40" />
+        <FloatingOrb className="left-[5%] top-[12%] h-64 w-64 bg-sky-600/40" />
         <FloatingOrb
           className="right-[8%] top-[28%] h-80 w-80 bg-cyan-500/25"
           motionClass="cs-orb-delayed"
@@ -165,7 +165,7 @@ export default function CaseStudyDetailContent({ study }) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, ...marketingTransition }}
-              className="mt-6 text-xs font-bold uppercase tracking-[0.3em] text-violet-300/90"
+              className="mt-6 text-xs font-bold uppercase tracking-[0.3em] text-sky-300/90"
             >
               {study.hero.eyebrow}
             </motion.p>
@@ -215,7 +215,7 @@ export default function CaseStudyDetailContent({ study }) {
             transition={{ delay: 0.25, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="relative mx-auto w-full max-w-xl lg:max-w-none"
           >
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-violet-500/40 via-cyan-400/20 to-transparent opacity-80 blur-2xl" />
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky-500/40 via-cyan-400/20 to-transparent opacity-80 blur-2xl" />
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-[0_32px_80px_-20px_rgba(0,0,0,0.65)] sm:rounded-[2rem]">
               <Image
                 src={study.image}
@@ -278,7 +278,7 @@ export default function CaseStudyDetailContent({ study }) {
                 <p className="mt-3 text-xs font-bold uppercase tracking-wider text-[var(--brand-primary)]">
                   {item.label}
                 </p>
-                <p className="mt-2 text-sm font-semibold leading-snug text-[#0E2238] sm:text-base">
+                <p className="mt-2 text-sm font-semibold leading-snug text-[#0a0a0a] sm:text-base">
                   {item.value}
                 </p>
               </motion.div>
@@ -291,10 +291,10 @@ export default function CaseStudyDetailContent({ study }) {
                 whileInView={{ scale: [0.98, 1] }}
                 viewport={sectionViewport}
                 transition={marketingTransition}
-                className="relative overflow-hidden rounded-3xl border border-violet-200/50 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(90,28,203,0.2)] sm:p-12"
+                className="relative overflow-hidden rounded-3xl border border-sky-200/50 bg-white p-8 shadow-[0_24px_60px_-24px_rgba(0,82,212,0.2)] sm:p-12"
               >
                 <FaQuoteLeft
-                  className="absolute left-6 top-6 text-5xl text-violet-200/80 sm:left-10 sm:top-8 sm:text-6xl"
+                  className="absolute left-6 top-6 text-5xl text-sky-200/80 sm:left-10 sm:top-8 sm:text-6xl"
                   aria-hidden
                 />
                 <p className="relative z-10 pl-4 text-xl font-medium italic leading-relaxed text-slate-700 sm:pl-8 sm:text-2xl">
@@ -303,7 +303,7 @@ export default function CaseStudyDetailContent({ study }) {
                 <footer className="relative z-10 mt-8 flex items-center gap-4 pl-4 sm:pl-8">
                   <div className="h-12 w-1 rounded-full bg-marketing-purple-gradient" />
                   <div>
-                    <p className="font-bold text-[#0E2238]">{study.quote.author}</p>
+                    <p className="font-bold text-[#0a0a0a]">{study.quote.author}</p>
                     {study.quote.role ? (
                       <p className="text-sm text-slate-500">{study.quote.role}</p>
                     ) : null}
@@ -316,7 +316,7 @@ export default function CaseStudyDetailContent({ study }) {
       </section>
 
       {/* ——— About — dark band ——— */}
-      <section className="relative overflow-hidden bg-[#0E2238] py-20 text-white sm:py-24">
+      <section className="relative overflow-hidden bg-[#0a0a0a] py-20 text-white sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(0,180,216,0.12),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal variant="left">
@@ -336,11 +336,11 @@ export default function CaseStudyDetailContent({ study }) {
           </Reveal>
           <div className="grid gap-8 lg:grid-cols-2">
             <Reveal variant="left">
-              <div className="h-full rounded-3xl border border-rose-100 bg-gradient-to-br from-rose-50/90 to-white p-8 sm:p-10">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-rose-600">
+              <div className="h-full rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50/90 to-white p-8 sm:p-10">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-sky-600">
                   <FaExclamationTriangle aria-hidden />
                 </div>
-                <h3 className="text-xl font-bold text-[#0E2238]">Business Problems</h3>
+                <h3 className="text-xl font-bold text-[#0a0a0a]">Business Problems</h3>
                 <motion.ul
                   initial="hidden"
                   whileInView="show"
@@ -350,7 +350,7 @@ export default function CaseStudyDetailContent({ study }) {
                 >
                   {study.problems.map((item) => (
                     <motion.li key={item} variants={staggerItem} className="flex gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-400" />
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400" />
                       <span className="text-sm leading-relaxed text-slate-600 sm:text-base">{item}</span>
                     </motion.li>
                   ))}
@@ -362,7 +362,7 @@ export default function CaseStudyDetailContent({ study }) {
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
                   <FaLightbulb aria-hidden />
                 </div>
-                <h3 className="text-xl font-bold text-[#0E2238]">Our Solutions</h3>
+                <h3 className="text-xl font-bold text-[#0a0a0a]">Our Solutions</h3>
                 <motion.ul
                   initial="hidden"
                   whileInView="show"
@@ -391,7 +391,7 @@ export default function CaseStudyDetailContent({ study }) {
           </Reveal>
           <div className="relative">
             <div
-              className="absolute bottom-0 left-[1.65rem] top-4 hidden w-px bg-gradient-to-b from-[var(--brand-primary)] via-violet-400/50 to-transparent lg:block"
+              className="absolute bottom-0 left-[1.65rem] top-4 hidden w-px bg-gradient-to-b from-[var(--brand-primary)] via-sky-400/50 to-transparent lg:block"
               aria-hidden
             />
             <motion.div
@@ -409,7 +409,7 @@ export default function CaseStudyDetailContent({ study }) {
                       whileInView={{ scale: [0.5, 1.15, 1] }}
                       viewport={sectionViewport}
                       transition={{ delay: 0.1, duration: 0.5 }}
-                      className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-marketing-purple-gradient text-lg font-bold text-white shadow-lg shadow-violet-500/30"
+                      className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-marketing-purple-gradient text-lg font-bold text-white shadow-lg shadow-sky-500/30"
                     >
                       {step.step}
                     </motion.span>
@@ -417,7 +417,7 @@ export default function CaseStudyDetailContent({ study }) {
                       whileHover={reduceMotion ? {} : { x: 6 }}
                       className="flex-1 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
                     >
-                      <h3 className="text-lg font-bold text-[#0E2238]">{step.title}</h3>
+                      <h3 className="text-lg font-bold text-[#0a0a0a]">{step.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
                         {step.description}
                       </p>
@@ -452,9 +452,9 @@ export default function CaseStudyDetailContent({ study }) {
                     idx === 0 ? 'md:col-span-1' : ''
                   }`}
                 >
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400/20 to-violet-400/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-cyan-400/20 to-sky-400/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <span className="text-4xl font-bold text-slate-100">{String(idx + 1).padStart(2, '0')}</span>
-                  <h3 className="relative mt-4 text-lg font-bold text-[#0E2238]">{item.title}</h3>
+                  <h3 className="relative mt-4 text-lg font-bold text-[#0a0a0a]">{item.title}</h3>
                   <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{item.description}</p>
                 </motion.div>
               </Reveal>
@@ -464,13 +464,13 @@ export default function CaseStudyDetailContent({ study }) {
       </section>
 
       {/* ——— Tech marquee ——— */}
-      <section className="overflow-hidden border-y border-slate-200/80 bg-[#0E2238] py-14">
+      <section className="overflow-hidden border-y border-slate-200/80 bg-[#0a0a0a] py-14">
         <Reveal className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300">Technology Stack</p>
         </Reveal>
         <div className="relative mt-8 flex overflow-hidden">
-          <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#0E2238] to-transparent" />
-          <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#0E2238] to-transparent" />
+          <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent" />
+          <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
           <div className={`flex shrink-0 gap-4 ${reduceMotion ? '' : 'cs-marquee-track'}`}>
             {[...allTech, ...allTech].map((tech, i) => (
               <span
@@ -519,7 +519,7 @@ export default function CaseStudyDetailContent({ study }) {
               <Reveal key={result.title} delay={idx * 0.07} variant={idx % 2 === 0 ? 'left' : 'right'}>
                 <motion.div
                   whileHover={reduceMotion ? {} : { scale: 1.02 }}
-                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0E2238] to-[#162d4a] p-8 text-white"
+                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0a0a0a] to-[#162d4a] p-8 text-white"
                 >
                   <span className="text-5xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
                   <h3 className="mt-2 text-xl font-bold">{result.title}</h3>
@@ -534,12 +534,12 @@ export default function CaseStudyDetailContent({ study }) {
 
       {/* ——— Conclusion CTA ——— */}
       <section className="relative overflow-hidden py-20 sm:py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-100/80 via-[#F6FCFF] to-cyan-100/60" />
-        <FloatingOrb className="left-[10%] top-[20%] h-48 w-48 bg-violet-400/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-100/80 via-[#F6FCFF] to-cyan-100/60" />
+        <FloatingOrb className="left-[10%] top-[20%] h-48 w-48 bg-sky-400/30" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal variant="scale">
             <div className="rounded-3xl border border-white/60 bg-white/80 p-10 text-center shadow-xl backdrop-blur-md sm:p-14">
-              <h2 className="text-3xl font-bold tracking-tight text-[#0E2238] sm:text-4xl">Conclusion</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0a0a0a] sm:text-4xl">Conclusion</h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">{study.conclusion}</p>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                 <Link href="/contact-us" className="ref-cta-primary mt-10 inline-flex items-center gap-2">
@@ -580,7 +580,7 @@ export default function CaseStudyDetailContent({ study }) {
                         <p className="text-xs font-bold uppercase tracking-wider text-[var(--brand-primary)]">
                           {other.category}
                         </p>
-                        <h3 className="mt-2 text-xl font-bold text-[#0E2238] transition-colors group-hover:text-[var(--brand-primary)]">
+                        <h3 className="mt-2 text-xl font-bold text-[#0a0a0a] transition-colors group-hover:text-[var(--brand-primary)]">
                           {other.title}
                         </h3>
                         <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand-primary)]">

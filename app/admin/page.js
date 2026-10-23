@@ -68,8 +68,8 @@ export default function AdminLoginPage() {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-[var(--admin-primary)]/10 blur-[80px]" />
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-20 py-16">
           <div className="mb-10">
-            <div className="h-14 w-14 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center overflow-hidden mb-6">
-              <img src="/assets/images/med_logo.png" alt={`${appName} Logo`} className="h-10 w-10 object-contain" />
+            <div className="h-14 w-44 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center overflow-hidden mb-6 px-2">
+              <img src="/assets/images/zorvian-digital-logo.png" alt={`${appName} Logo`} className="h-16 w-full object-contain" />
             </div>
             <h1 className="text-2xl xl:text-3xl font-bold text-white tracking-tight">
               {appName}
@@ -124,8 +124,8 @@ export default function AdminLoginPage() {
       <div className="flex-1 flex items-center justify-center px-6 py-12 sm:px-12 bg-[#F6FCFF]">
         <div className="w-full max-w-[400px]">
           <div className="lg:hidden mb-8 flex flex-col items-center">
-            <div className="h-12 w-12 rounded-xl bg-[var(--admin-sidebar)] flex items-center justify-center overflow-hidden">
-              <img src="/assets/images/med_logo.png" alt={`${appName} Logo`} className="h-8 w-8 object-contain" />
+            <div className="h-12 w-40 rounded-xl bg-white flex items-center justify-center overflow-hidden px-2 shadow-sm">
+              <img src="/assets/images/zorvian-digital-logo.png" alt={`${appName} Logo`} className="h-10 w-full object-contain" />
             </div>
             <p className="mt-3 text-lg font-semibold text-slate-900">{appName}</p>
           </div>

@@ -3,28 +3,28 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --brand-primary: #00b4d8;
-  --brand-primary-dark: #009fbe;
+  --foreground: #111111;
+  /* Zorvian Digital Solutions — logo blues */
+  --brand-primary: #0088f0;
+  --brand-primary-dark: #0066cc;
 
-  /* Marketing / reference-aligned tokens (tunable after DevTools audit) */
-  /* Reference-style neutrals + warm accent (navy headings, rose kicker, amber CTA) */
-  --marketing-page-bg: #f4f5f9;
-  --marketing-ink: #0c1929;
-  --marketing-ink-muted: #5c6677;
-  --marketing-accent: #e11d48;
-  --marketing-accent-soft: #fff1f2;
-  --marketing-cta-from: #5a1ccb;
-  --marketing-cta-to: #815edc;
-  /** Primary marketing pill / icon fills (replaces orange–rose) */
-  --marketing-purple-gradient: linear-gradient(90deg, #5a1ccb -2.17%, #815edc 100%);
+  /* Marketing tokens aligned to logo (black + electric blue) */
+  --marketing-page-bg: #f5f8fc;
+  --marketing-ink: #0a0a0a;
+  --marketing-ink-muted: #4b5563;
+  --marketing-accent: #0088f0;
+  --marketing-accent-soft: #e8f4ff;
+  --marketing-cta-from: #0052d4;
+  --marketing-cta-to: #00c2ff;
+  /** Primary marketing pill / icon fills (logo blue gradient) */
+  --marketing-purple-gradient: linear-gradient(90deg, #0052d4 -2.17%, #00c2ff 100%);
   --marketing-container: 72rem; /* max-w-7xl */
   --marketing-radius-card: 1rem;
   --marketing-radius-pill: 9999px;
   --marketing-radius-hero: 2.75rem;
-  --marketing-shadow-header: 0 12px 40px -12px rgba(15, 23, 42, 0.12);
-  --marketing-shadow-card: 0 18px 40px -12px rgba(15, 23, 42, 0.12);
-  --marketing-shadow-floating: 0 24px 60px -16px rgba(30, 27, 75, 0.18);
+  --marketing-shadow-header: 0 12px 40px -12px rgba(10, 10, 10, 0.1);
+  --marketing-shadow-card: 0 18px 40px -12px rgba(0, 82, 212, 0.12);
+  --marketing-shadow-floating: 0 24px 60px -16px rgba(0, 102, 204, 0.18);
   --marketing-section-y: 4rem;
   --marketing-section-y-md: 5rem;
   --marketing-marquee-duration: 38s;
@@ -34,8 +34,8 @@
 :root {
   --admin-primary: var(--brand-primary);
   --admin-primary-dark: var(--brand-primary-dark);
-  --admin-primary-light: #EAF9FD;
-  --admin-sidebar: #0c1222;
+  --admin-primary-light: #e8f4ff;
+  --admin-sidebar: #0a0a0a;
   --admin-sidebar-hover: rgba(255, 255, 255, 0.08);
   --admin-accent: var(--brand-primary);
 }
@@ -130,10 +130,10 @@ body {
 @keyframes glowPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 rgba(0, 180, 216, 0);
+    box-shadow: 0 0 0 rgba(0, 136, 240, 0);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 180, 216, 0.28);
+    box-shadow: 0 0 30px rgba(0, 136, 240, 0.28);
   }
 }
 
@@ -240,7 +240,7 @@ body {
     height: 1px;
     width: 2.5rem;
     flex-shrink: 0;
-    background: linear-gradient(to right, #fb923c, #f43f5e);
+    background: linear-gradient(to right, #0052d4, #00c2ff);
   }
 
   @media (min-width: 640px) {
@@ -272,7 +272,7 @@ body {
     font-weight: 600;
     letter-spacing: 0.03em;
     color: #fff;
-    box-shadow: 0 12px 32px rgba(90, 28, 203, 0.32);
+    box-shadow: 0 12px 32px rgba(0, 82, 212, 0.32);
     transition: filter 0.2s ease, transform 0.2s ease;
   }
 
@@ -291,7 +291,7 @@ body {
   }
 
   .shadow-marketing-purple-icon {
-    box-shadow: 0 8px 22px rgba(90, 28, 203, 0.32);
+    box-shadow: 0 8px 22px rgba(0, 82, 212, 0.32);
   }
 
   /* Case study detail — ambient motion */
@@ -414,8 +414,8 @@ body {
 
   .process-roadmap-grid {
     background-image:
-      linear-gradient(rgba(90, 28, 203, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(90, 28, 203, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(0, 82, 212, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 82, 212, 0.06) 1px, transparent 1px);
     background-size: 36px 36px;
     mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, black 10%, transparent 78%);
   }
@@ -433,7 +433,7 @@ body {
   }
 
   .process-gradient-title {
-    background: linear-gradient(120deg, #0e2238 0%, #5a1ccb 35%, #0891b2 65%, #0e2238 100%);
+    background: linear-gradient(120deg, #0a0a0a 0%, #0052d4 35%, #00c2ff 65%, #0a0a0a 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -445,9 +445,9 @@ body {
     background: linear-gradient(
       90deg,
       transparent,
-      var(--step-accent, #5a1ccb),
-      #0891b2,
-      var(--step-accent, #5a1ccb),
+      var(--step-accent, #0088f0),
+      #00c2ff,
+      var(--step-accent, #0088f0),
       transparent
     );
     background-size: 200% 100%;
@@ -484,7 +484,7 @@ body {
 
   .process-step-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 28px 70px -24px rgba(90, 28, 203, 0.25);
+    box-shadow: 0 28px 70px -24px rgba(0, 82, 212, 0.25);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -496,9 +496,9 @@ body {
     }
 
     .process-gradient-title {
-      color: #0e2238;
+      color: #0a0a0a;
       background: none;
-      -webkit-text-fill-color: #0e2238;
+      -webkit-text-fill-color: #0a0a0a;
     }
   }
 }

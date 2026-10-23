@@ -30,11 +30,11 @@ export default function WhyChooseSection({ highlights }) {
           <Animate variant="down">
             <p className="inline-flex items-center gap-2.5 rounded-full border border-[var(--brand-primary)]/30 bg-white/80 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-primary)] shadow-[0_2px_12px_rgba(0,180,216,0.08)] backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-[var(--brand-primary)] shadow-[0_0_8px_rgba(0,180,216,0.5)]" />
-              Why Choose Medhostech
+              Why Choose Zorvian Digital Solutions
             </p>
           </Animate>
           <Animate variant="down" delay={0.12}>
-            <h2 className="mt-6 text-2xl font-bold tracking-[-0.02em] text-[#0E2238] sm:text-3xl md:text-5xl md:leading-[1.12]">
+            <h2 className="mt-6 text-2xl font-bold tracking-[-0.02em] text-[#0a0a0a] sm:text-3xl md:text-5xl md:leading-[1.12]">
               Built for Reliability,<br className="hidden sm:block" /> Designed for Scale
             </h2>
           </Animate>
@@ -58,7 +58,7 @@ export default function WhyChooseSection({ highlights }) {
               <div className="relative h-[460px] overflow-hidden rounded-[2.1rem] bg-slate-100">
                 <Image
                   src="/assets/images/new/5.jpg"
-                  alt="Why choose Medhostech"
+                  alt="Why choose Zorvian Digital Solutions"
                   fill
                   sizes="(max-width: 768px) 100vw, 420px"
                   className="object-cover transition duration-700 group-hover:scale-[1.02]"
@@ -83,7 +83,7 @@ export default function WhyChooseSection({ highlights }) {
                       {Icon && <Icon className="text-xl" />}
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold tracking-tight text-[#0E2238]">{item.title}</h3>
+                      <h3 className="text-lg font-bold tracking-tight text-[#0a0a0a]">{item.title}</h3>
                       <p className="mt-2.5 text-[15px] leading-relaxed text-slate-600">{item.desc}</p>
                     </div>
                   </div>

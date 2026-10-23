@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
   const imgUrl = getImageSrc(product.image) || product.image;
   const ogImage = imgUrl ? (imgUrl.startsWith('http') ? imgUrl : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://medhostech.com'}${imgUrl}`) : undefined;
   return buildSeoMetadata({
-    title: `${title} - Medhostech | Healthcare Solutions`,
+    title: `${title} - Zorvian Digital Solutions | Healthcare Solutions`,
     description,
     path: `/products/${product.slug}`,
     ogImage,

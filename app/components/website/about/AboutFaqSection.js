@@ -8,7 +8,7 @@ import Animate from '../Animate';
 
 const FAQS = [
   {
-    q: 'What services does MedHostech Solutions provide?',
+    q: 'What services does Zorvian Digital Solutions provide?',
     a: 'We design and build websites, web applications, mobile apps, e-commerce stores, and cloud-based platforms. We also offer maintenance, performance optimization, and ongoing support after launch.',
   },
   {
@@ -61,7 +61,7 @@ function FaqAccordion() {
               className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
               aria-expanded={isOpen}
             >
-              <span className="text-base font-bold leading-snug text-[#0E2238] sm:text-lg">{faq.q}</span>
+              <span className="text-base font-bold leading-snug text-[#0a0a0a] sm:text-lg">{faq.q}</span>
               <motion.span
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.25 }}
@@ -98,7 +98,7 @@ function FaqAccordion() {
 export default function AboutFaqSection() {
   return (
     <section id="faq" className="relative overflow-hidden bg-[#f4f5f9] py-20 sm:py-24" aria-labelledby="about-faq-heading">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(90,28,203,0.05),transparent_55%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(0,82,212,0.05),transparent_55%)]" aria-hidden />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] lg:items-start lg:gap-12 xl:gap-16">
@@ -124,7 +124,7 @@ export default function AboutFaqSection() {
 
           <Animate variant="right" delay={0.1}>
             <aside className="lg:sticky lg:top-28">
-              <div className="overflow-hidden rounded-3xl bg-marketing-purple-gradient p-8 text-white shadow-[0_24px_56px_-20px_rgba(90,28,203,0.45)] sm:p-9">
+              <div className="overflow-hidden rounded-3xl bg-marketing-purple-gradient p-8 text-white shadow-[0_24px_56px_-20px_rgba(0,82,212,0.45)] sm:p-9">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/75">Need more detail?</p>
                 <h3 className="mt-3 text-xl font-bold leading-snug sm:text-2xl">
                   Talk to our team about your project
@@ -134,7 +134,7 @@ export default function AboutFaqSection() {
                 </p>
                 <Link
                   href="/contact-us"
-                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#5a1ccb] shadow-lg transition hover:bg-white/95 sm:w-auto"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#0052d4] shadow-lg transition hover:bg-white/95 sm:w-auto"
                 >
                   Contact us
                   <FaArrowRight className="text-xs" aria-hidden />

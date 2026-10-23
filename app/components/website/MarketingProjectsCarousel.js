@@ -124,7 +124,7 @@ export default function MarketingProjectsCarousel({
                     className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-slate-950/0 transition-colors duration-300 group-hover:bg-slate-950/25 group-focus-within:bg-slate-950/25"
                     aria-hidden
                   >
-                    <span className="flex h-14 w-14 translate-y-2 scale-90 items-center justify-center rounded-full bg-marketing-purple-gradient text-white opacity-0 shadow-[0_12px_32px_rgba(90,28,203,0.45)] ring-2 ring-white/35 transition-all duration-300 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-opacity motion-reduce:group-hover:scale-100">
+                    <span className="flex h-14 w-14 translate-y-2 scale-90 items-center justify-center rounded-full bg-marketing-purple-gradient text-white opacity-0 shadow-[0_12px_32px_rgba(0,82,212,0.45)] ring-2 ring-white/35 transition-all duration-300 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-opacity motion-reduce:group-hover:scale-100">
                       <FaArrowRight className="text-base" aria-hidden />
                     </span>
                   </div>
@@ -142,7 +142,7 @@ export default function MarketingProjectsCarousel({
         <button
           type="button"
           onClick={scrollPrev}
-          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-800 shadow-md backdrop-blur-sm transition hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500 sm:h-12 sm:w-12"
+          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-800 shadow-md backdrop-blur-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 sm:h-12 sm:w-12"
           aria-label="Previous slide"
         >
           <FaChevronLeft className="text-sm" aria-hidden />
@@ -150,7 +150,7 @@ export default function MarketingProjectsCarousel({
         <button
           type="button"
           onClick={scrollNext}
-          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-800 shadow-md backdrop-blur-sm transition hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500 sm:h-12 sm:w-12"
+          className="pointer-events-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-white/95 text-slate-800 shadow-md backdrop-blur-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 sm:h-12 sm:w-12"
           aria-label="Next slide"
         >
           <FaChevronRight className="text-sm" aria-hidden />
@@ -165,7 +165,7 @@ export default function MarketingProjectsCarousel({
             role="tab"
             aria-selected={i === selectedIndex}
             aria-label={`Go to ${p.title}`}
-            className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500 ${
+            className={`h-2.5 rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 ${
               i === selectedIndex ? 'w-8 bg-marketing-purple-gradient' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
             }`}
             onClick={() => emblaApi?.scrollTo(i)}

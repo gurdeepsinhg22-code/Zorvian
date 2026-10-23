@@ -27,10 +27,10 @@ export async function generateMetadata({ params }) {
   const blog = await fetchBlogBySlug(slug);
   if (!blog) return { title: 'Blog Not Found' };
   const title = blog.meta_title || blog.title;
-  const description = blog.meta_description || blog.description || `Read ${blog.title} on Medhostech blog.`;
+  const description = blog.meta_description || blog.description || `Read ${blog.title} on Zorvian Digital Solutions blog.`;
   const ogImage = getBlogFeaturedImageSrc(blog.featured_image) || undefined;
   return buildSeoMetadata({
-    title: `${title} | Medhostech Blog`,
+    title: `${title} | Zorvian Digital Solutions Blog`,
     description,
     path: `/blog/${blog.slug}`,
     ogImage,
@@ -51,7 +51,7 @@ export default async function BlogDetailPage({ params }) {
   const featuredImageSrc = blog.featured_image ? getBlogFeaturedImageSrc(blog.featured_image) : null;
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner title={blog.title} breadcrumbCurrent={breadcrumbCrumb} />
 
       <section className="border-b border-slate-200 bg-white">
@@ -63,7 +63,7 @@ export default async function BlogDetailPage({ params }) {
             <FaArrowLeft size={14} className="transition-transform group-hover:-translate-x-0.5" />
             Back to Blog
           </Link>
-          <span className="inline-flex w-fit rounded-full border border-violet-200 bg-violet-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-violet-800">
+          <span className="inline-flex w-fit rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-sky-800">
             {blog.category || 'Article'}
           </span>
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-600">
@@ -77,7 +77,7 @@ export default async function BlogDetailPage({ params }) {
             </span>
             <span className="flex items-center gap-2">
               <FaUser className="h-4 w-4 text-[var(--brand-primary)]" />
-              Medhostech Editorial
+              Zorvian Digital Solutions Editorial
             </span>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default async function BlogDetailPage({ params }) {
                   M
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-800">Medhostech Editorial</p>
+                  <p className="font-semibold text-slate-800">Zorvian Digital Solutions Editorial</p>
                   <p className="text-sm text-slate-500">Healthcare IT & software insights</p>
                 </div>
                 <div className="ml-auto hidden items-center gap-2 text-sm text-slate-400 sm:flex">
@@ -126,7 +126,7 @@ export default async function BlogDetailPage({ params }) {
                 className="
                   prose prose-slate max-w-none
                   prose-p:text-base prose-p:text-slate-600 prose-p:leading-[1.7] prose-p:mb-5
-                  prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[#0E2238]
+                  prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[#0a0a0a]
                   prose-h2:text-xl prose-h2:sm:text-2xl prose-h2:mt-10 prose-h2:mb-3 prose-h2:pb-2 prose-h2:border-b prose-h2:border-slate-200
                   prose-h3:text-lg prose-h3:sm:text-xl prose-h3:mt-6 prose-h3:mb-2
                   prose-a:text-[var(--brand-primary)] prose-a:no-underline prose-a:font-medium hover:prose-a:underline prose-a:transition-all

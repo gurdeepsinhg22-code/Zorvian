@@ -27,12 +27,12 @@ export default function CompanyBenefitsSection() {
             </Animate>
             <Animate variant="left" delay={0.08}>
               <h2 className="ref-section-title mt-5 text-3xl sm:text-4xl md:text-[2.35rem] md:leading-[1.15]">
-                Why Choose MedHostech Solutions
+                Why Choose Zorvian Digital Solutions
               </h2>
             </Animate>
             <Animate variant="left" delay={0.16}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--marketing-ink-muted,#5c6677)] sm:text-lg">
-                MedHostech Solutions is committed to delivering high-quality web development services that help businesses
+                Zorvian Digital Solutions is committed to delivering high-quality web development services that help businesses
                 grow online. We focus on performance, security, and user experience to ensure every project meets modern
                 digital standards and delivers real value.
               </p>
@@ -41,13 +41,13 @@ export default function CompanyBenefitsSection() {
               <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-4">
                 {benefits.map((item) => (
                   <li key={item.label} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-rose-500 bg-white">
-                      <FaCheck className="text-[11px] text-rose-600" aria-hidden />
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border border-sky-500 bg-white">
+                      <FaCheck className="text-[11px] text-sky-600" aria-hidden />
                     </span>
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className="text-sm font-medium leading-snug text-slate-800 underline-offset-2 hover:text-rose-600 hover:underline sm:text-[15px]"
+                        className="text-sm font-medium leading-snug text-slate-800 underline-offset-2 hover:text-sky-600 hover:underline sm:text-[15px]"
                       >
                         {item.label}
                       </Link>
@@ -61,7 +61,7 @@ export default function CompanyBenefitsSection() {
             <Animate variant="left" delay={0.32}>
               <Link href="/about-us" className="ref-cta-primary group mt-8">
                 learn more
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#5A1CCB] transition group-hover:translate-x-0.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#0052D4] transition group-hover:translate-x-0.5">
                   <FaArrowRight className="text-xs" aria-hidden />
                 </span>
               </Link>
@@ -89,7 +89,7 @@ export default function CompanyBenefitsSection() {
                   {[40, 52, 36, 48, 44, 56].map((h, i) => (
                     <span
                       key={i}
-                      className={`w-1 rounded-sm ${i % 2 === 0 ? 'bg-neutral-800' : 'bg-orange-200'}`}
+                      className={`w-1 rounded-sm ${i % 2 === 0 ? 'bg-neutral-800' : 'bg-sky-300'}`}
                       style={{ height: `${h}%` }}
                     />
                   ))}
@@ -99,7 +99,7 @@ export default function CompanyBenefitsSection() {
                 {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m, i) => (
                   <div key={m} className="flex min-w-0 flex-1 flex-col items-center gap-1.5">
                     <span
-                      className={`w-full max-w-[14px] rounded-sm sm:max-w-[18px] ${i % 2 === 0 ? 'bg-neutral-800' : 'bg-orange-200'}`}
+                      className={`w-full max-w-[14px] rounded-sm sm:max-w-[18px] ${i % 2 === 0 ? 'bg-neutral-800' : 'bg-sky-300'}`}
                       style={{ height: `${chartHeights[i]}px` }}
                     />
                     <span className="text-[9px] font-medium text-slate-400">{m}</span>

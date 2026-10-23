@@ -12,7 +12,7 @@ import { WebPageJsonLd } from './components/website/JsonLd';
 import { buildSeoMetadata } from '../lib/seo';
 
 export const metadata = buildSeoMetadata({
-  title: 'MedHostech Solutions | Web Development, Apps & Digital Solutions',
+  title: 'Zorvian Digital Solutions | Web Development, Apps & Digital Solutions',
   description:
     'Professional web development company delivering high-performance websites, web applications, and custom digital solutions. Modern design, clean code, scalable technology.',
   path: '/',
@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[var(--marketing-page-bg,#f4f5f9)] text-[var(--marketing-ink,#0c1929)]">
       <WebPageJsonLd
-        name="MedHostech Solutions | Web Development & Digital Solutions"
+        name="Zorvian Digital Solutions | Web Development & Digital Solutions"
         description="Professional web development, web applications, and custom digital solutions for business growth."
         url="/"
       />

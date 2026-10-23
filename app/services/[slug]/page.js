@@ -127,7 +127,7 @@ const servicePages = {
         a: 'We develop Android apps, iOS apps, and cross-platform mobile applications for various business needs.',
       },
       {
-        q: 'Why Choose MedHostech Solutions for Mobile Apps?',
+        q: 'Why Choose Zorvian Digital Solutions for Mobile Apps?',
         a: 'We deliver secure, scalable, and user-friendly mobile apps with a focus on performance and business growth.',
       },
       {
@@ -346,9 +346,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const resolved = await params;
   const page = servicePages[resolved?.slug];
-  if (!page) return { title: 'Service Not Found | MedHostech Solutions' };
+  if (!page) return { title: 'Service Not Found | Zorvian Digital Solutions' };
   return buildSeoMetadata({
-    title: `${page.title} – MedHostech Solutions`,
+    title: `${page.title} – Zorvian Digital Solutions`,
     description: page.description,
     path: `/services/${resolved.slug}`,
   });

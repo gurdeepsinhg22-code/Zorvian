@@ -4,7 +4,7 @@
  */
 export default function PrivacyPolicyBody() {
   return (
-    <div className="prose prose-slate max-w-none text-slate-600 prose-headings:text-[#0E2238] prose-a:text-[var(--brand-primary)] prose-strong:text-slate-800">
+    <div className="prose prose-slate max-w-none text-slate-600 prose-headings:text-[#0a0a0a] prose-a:text-[var(--brand-primary)] prose-strong:text-slate-800">
       <p className="lead text-slate-700">
         This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
         information when You use the Service and tells You about Your privacy rights and how the law protects You.
@@ -36,7 +36,7 @@ export default function PrivacyPolicyBody() {
         </li>
         <li>
           <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-          &quot;Our&quot; in this Agreement) refers to Medhostechsolutions, Medhostechsolutions.
+          &quot;Our&quot; in this Agreement) refers to Zorvian Digital Solutions.
         </li>
         <li>
           <strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device
@@ -70,8 +70,7 @@ export default function PrivacyPolicyBody() {
           Service or from the Service infrastructure itself (for example, the duration of a page visit).
         </li>
         <li>
-          <strong>Website</strong> refers to Medhostechsolutions, accessible from{' '}
-          <a href="https://medhostechsolutions.com">https://medhostechsolutions.com</a>
+          <strong>Website</strong> refers to Zorvian Digital Solutions, accessible from this website.
         </li>
         <li>
           <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal
@@ -207,7 +206,7 @@ export default function PrivacyPolicyBody() {
             key={c.name}
             className="rounded-lg border border-slate-200 bg-slate-50/80 p-4 text-sm text-slate-700 shadow-sm"
           >
-            <p className="font-bold text-[#0E2238]">{c.name}</p>
+            <p className="font-bold text-[#0a0a0a]">{c.name}</p>
             <p className="mt-1">
               <span className="font-semibold text-slate-800">Type:</span> {c.type}
             </p>
@@ -419,8 +418,8 @@ export default function PrivacyPolicyBody() {
 
       <p className="mt-10 border-t border-slate-200 pt-8 text-sm text-slate-500">
         Questions? Contact us at{' '}
-        <a href="mailto:Info@medhostech.com" className="font-medium">
-          Info@medhostech.com
+        <a href="mailto:amiedhiman@gmail.com" className="font-medium">
+          amiedhiman@gmail.com
         </a>
         .
       </p>

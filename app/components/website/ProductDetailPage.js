@@ -18,7 +18,7 @@ export default function ProductDetailPage({
   const productUrl = productSlug ? `/products/${productSlug}` : null;
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       {productUrl && (
         <SoftwareApplicationJsonLd
           name={title}
@@ -34,7 +34,7 @@ export default function ProductDetailPage({
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0E2238 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0a0a0a 1px, transparent 0)`,
             backgroundSize: '24px 24px',
           }}
         />
@@ -95,7 +95,7 @@ export default function ProductDetailPage({
               </p>
             </Animate>
             <Animate variant="down" delay={0.08}>
-              <h2 className="mt-4 text-2xl font-bold text-[#0E2238] sm:text-3xl md:text-4xl">
+              <h2 className="mt-4 text-2xl font-bold text-[#0a0a0a] sm:text-3xl md:text-4xl">
                 Key Features of {title}
               </h2>
             </Animate>
@@ -107,7 +107,7 @@ export default function ProductDetailPage({
                 return (
                   <Animate key={`${title}-${idx}`} variant="up" delay={0.12 + idx * 0.06}>
                     <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_8px_32px_-8px_rgba(15,23,42,0.08)] transition hover:border-cyan-200/60 hover:shadow-[0_16px_40px_-8px_rgba(2,105,148,0.12)]">
-                      <h3 className="text-lg font-bold text-[#0E2238]">{title}</h3>
+                      <h3 className="text-lg font-bold text-[#0a0a0a]">{title}</h3>
                       {desc && <p className="mt-3 text-slate-600 leading-relaxed">{desc}</p>}
                     </div>
                   </Animate>
@@ -128,7 +128,7 @@ export default function ProductDetailPage({
               </p>
             </Animate>
             <Animate variant="down" delay={0.08}>
-              <h2 className="mt-4 text-2xl font-bold text-[#0E2238] sm:text-3xl md:text-4xl">
+              <h2 className="mt-4 text-2xl font-bold text-[#0a0a0a] sm:text-3xl md:text-4xl">
                 Why Choose {title}?
               </h2>
             </Animate>
@@ -138,7 +138,7 @@ export default function ProductDetailPage({
                 if (!text) return null;
                 return (
                   <Animate key={`${text}-${idx}`} variant="up" delay={0.12 + idx * 0.03}>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200/60 bg-[#EAF9FD] px-4 py-2 text-sm font-medium text-[#0E2238]">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200/60 bg-[#EAF9FD] px-4 py-2 text-sm font-medium text-[#0a0a0a]">
                       <span className="h-2 w-2 rounded-full bg-[var(--brand-primary)]" />
                       {text}
                     </span>
@@ -161,7 +161,7 @@ export default function ProductDetailPage({
                     Ready to Transform Your Healthcare Operations?
                   </h2>
                   <p className="mt-3 text-cyan-50/95">
-                    Join thousands of healthcare providers who trust Medhostech for their digital needs.
+                    Join thousands of healthcare providers who trust Zorvian Digital Solutions for their digital needs.
                   </p>
                 </div>
                 <a

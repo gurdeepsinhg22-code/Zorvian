@@ -24,7 +24,7 @@ export default function HeroSection() {
     //       aria-hidden
     //     />
     //     <div
-    //       className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/85 via-transparent to-violet-50/20"
+    //       className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/85 via-transparent to-sky-50/20"
     //       aria-hidden
     //     />
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
     //         <Animate variant="left">
     //           <p className="ref-kicker text-[11px] sm:text-sm">
     //             <span className="ref-kicker-line" aria-hidden />
-    //             <span>Welcome to MedHostech Solutions</span>
+    //             <span>Welcome to Zorvian Digital Solutions</span>
     //           </p>
     //         </Animate>
     //         <Animate variant="left" delay={0.1}>
@@ -51,7 +51,7 @@ export default function HeroSection() {
     //         <Animate variant="left" delay={0.28}>
     //           <a href="#services" className="ref-cta-primary ref-cta-primary--flat group mt-8">
     //             discover more
-    //             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#5A1CCB] transition group-hover:translate-x-0.5">
+    //             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-[#0052D4] transition group-hover:translate-x-0.5">
     //               <FaArrowRight className="text-xs" aria-hidden />
     //             </span>
     //           </a>
@@ -63,7 +63,7 @@ export default function HeroSection() {
     //           <div className="relative aspect-[4/5] w-full max-w-[380px] md:max-w-[480px]">
     //             <Image
     //               src="/assets/images/hero-right-transparent.png"
-    //               alt="Healthcare technology professional representing MedHostech Solutions"
+    //               alt="Healthcare technology professional representing Zorvian Digital Solutions"
     //               fill
     //               priority
     //               quality={90}

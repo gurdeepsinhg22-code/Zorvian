@@ -1,9 +1,9 @@
 import { buildSeoMetadata } from '../../lib/seo';
 
 export const metadata = buildSeoMetadata({
-  title: 'Book An Appointment - Medhostech | Schedule a Demo',
+  title: 'Book An Appointment - Zorvian Digital Solutions | Schedule a Demo',
   description:
-    'Schedule a demo or consultation with Medhostech. Book an appointment to learn how our EHR and healthcare management solutions can transform your practice.',
+    'Schedule a demo or consultation with Zorvian Digital Solutions. Book an appointment to learn how our EHR and healthcare management solutions can transform your practice.',
   path: '/make-appointment',
 });
 

@@ -7,9 +7,9 @@ import { buildSeoMetadata } from '../../lib/seo';
 import { fetchPublishedBlogs } from '../../lib/blogPublicApi';
 
 export const metadata = buildSeoMetadata({
-  title: 'Blog - Medhostech | Healthcare IT, EHR & HRMS Insights',
+  title: 'Blog - Zorvian Digital Solutions | Healthcare IT, EHR & HRMS Insights',
   description:
-    'Read the latest articles on healthcare IT, patient management, HRMS software, and clinic management systems. Medhostech blog for healthcare professionals.',
+    'Read the latest articles on healthcare IT, patient management, HRMS software, and clinic management systems. Zorvian Digital Solutions blog for healthcare professionals.',
   path: '/blog',
 });
 
@@ -22,9 +22,9 @@ export default async function BlogPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <WebPageJsonLd
-        name="Blog - Medhostech | Healthcare IT, EHR & HRMS Insights"
+        name="Blog - Zorvian Digital Solutions | Healthcare IT, EHR & HRMS Insights"
         description="Read the latest articles on healthcare IT, patient management, HRMS software, and clinic management systems."
         url="/blog"
       />
@@ -39,7 +39,7 @@ export default async function BlogPage() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0E2238 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #0a0a0a 1px, transparent 0)`,
             backgroundSize: '32px 32px',
           }}
         />

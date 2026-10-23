@@ -88,17 +88,17 @@ export default function BlogListInfiniteScroll({ initialPosts = [], initialHasMo
                     />
                   ) : (
                     <div
-                      className="absolute inset-0 bg-gradient-to-br from-violet-100 via-white to-cyan-50"
+                      className="absolute inset-0 bg-gradient-to-br from-sky-100 via-white to-cyan-50"
                       aria-hidden
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E2238]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--brand-primary)] shadow-sm backdrop-blur">
                     {post.category || 'Blog'}
                   </span>
                 </div>
                 <div className="flex min-h-[200px] flex-1 flex-col p-6">
-                  <h2 className="line-clamp-2 min-h-[2.75rem] text-lg font-bold leading-snug text-[#0E2238] transition-colors group-hover:text-[var(--brand-primary)] md:min-h-[3rem] md:text-xl">
+                  <h2 className="line-clamp-2 min-h-[2.75rem] text-lg font-bold leading-snug text-[#0a0a0a] transition-colors group-hover:text-[var(--brand-primary)] md:min-h-[3rem] md:text-xl">
                     {post.title}
                   </h2>
                   {post.description && (

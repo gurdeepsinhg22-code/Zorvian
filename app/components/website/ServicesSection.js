@@ -19,7 +19,7 @@ export default function ServicesSection({ services }) {
               </p>
             </Animate>
             <Animate variant="down" delay={0.12}>
-              <h2 className="mt-3 text-2xl font-bold text-[#0E2238] sm:text-3xl md:text-4xl">
+              <h2 className="mt-3 text-2xl font-bold text-[#0a0a0a] sm:text-3xl md:text-4xl">
                 End-to-End Digital Healthcare Solutions
               </h2>
             </Animate>
@@ -40,7 +40,7 @@ export default function ServicesSection({ services }) {
               delay={[0.2, 0.32, 0.44, 0.56][idx] || 0.2}
             >
               <article
-                className={`group hover-lift relative min-h-[280px] overflow-hidden rounded-3xl border border-slate-200/70 bg-white text-[#000137] shadow-[0_12px_30px_rgba(2,18,34,0.08)] transition hover:border-cyan-200 hover:shadow-[0_20px_45px_rgba(2,105,148,0.16)] ${
+                className={`group hover-lift relative min-h-[280px] overflow-hidden rounded-3xl border border-slate-200/70 bg-white text-[#0a0a0a] shadow-[0_12px_30px_rgba(2,18,34,0.08)] transition hover:border-cyan-200 hover:shadow-[0_20px_45px_rgba(2,105,148,0.16)] ${
                   idx % 2 === 1 ? 'xl:mt-8' : ''
                 }`}
               >
@@ -48,7 +48,7 @@ export default function ServicesSection({ services }) {
                 <div className="absolute inset-0">
                   <Image
                     src={service.image}
-                    alt={`${service.title} - Medhostech healthcare solution`}
+                    alt={`${service.title} - Zorvian Digital Solutions healthcare solution`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
@@ -68,7 +68,7 @@ export default function ServicesSection({ services }) {
                     {service.icon}
                   </div>
 
-                  <h3 className="mt-4 text-lg font-bold text-[#1B3045]">{service.title}</h3>
+                  <h3 className="mt-4 text-lg font-bold text-[#111111]">{service.title}</h3>
                   <p className="mt-3 flex-1 text-sm text-slate-600">{service.desc}</p>
 
                   <Link

@@ -4,14 +4,14 @@ export function WebSiteJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'MedHostech Solutions',
+    name: 'Zorvian Digital Solutions',
     url: BASE_URL,
     description:
-      'MedHostech Solutions — professional web development, web applications, and custom digital solutions for businesses.',
+      'Zorvian Digital Solutions — professional web development, web applications, and custom digital solutions for businesses.',
     publisher: {
       '@type': 'Organization',
-      name: 'MedHostech Solutions',
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/images/med_logo.png` },
+      name: 'Zorvian Digital Solutions',
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/images/zorvian-digital-logo.png` },
     },
   };
 
@@ -27,11 +27,11 @@ export function OrganizationJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'MedHostech Solutions',
+    name: 'Zorvian Digital Solutions',
     url: BASE_URL,
-    logo: `${BASE_URL}/assets/images/med_logo.png`,
+    logo: `${BASE_URL}/assets/images/zorvian-digital-logo.png`,
     description:
-      'MedHostech Solutions delivers high-performance websites, web applications, and digital solutions focused on performance, security, and user experience.',
+      'Zorvian Digital Solutions delivers high-performance websites, web applications, and digital solutions focused on performance, security, and user experience.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Mohali',
@@ -40,8 +40,7 @@ export function OrganizationJsonLd() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+91-7018347459',
-      email: 'info@medhostech.com',
+      email: 'amiedhiman@gmail.com',
       contactType: 'sales',
       areaServed: 'IN',
     },
@@ -65,8 +64,8 @@ export function WebPageJsonLd({ name, description, url }) {
     url: `${BASE_URL}${url}`,
     publisher: {
       '@type': 'Organization',
-      name: 'MedHostech Solutions',
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/images/med_logo.png` },
+      name: 'Zorvian Digital Solutions',
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/assets/images/zorvian-digital-logo.png` },
     },
   };
 

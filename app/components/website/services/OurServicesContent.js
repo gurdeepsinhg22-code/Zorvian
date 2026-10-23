@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import {
   FaArrowRight,
+  FaBullhorn,
   FaCheck,
   FaDesktop,
   FaLaptopCode,
@@ -19,25 +20,36 @@ import SiteFooter from '../SiteFooter';
 import { marketingViewport, staggerContainer, staggerItem } from '../../../../lib/marketing/motion';
 
 const MARQUEE = [
+  'Digital Marketing',
   'Digital Solutions',
   'Mobile Innovation',
   'Smart Commerce',
   'Cloud Applications',
   'Platform Care',
   'Core Web Vitals',
-  'Healthcare IT',
   'Custom Software',
 ];
 
 const SERVICES = [
+  {
+    slug: 'digital-marketing',
+    href: '/digital-marketing',
+    title: 'Digital Marketing',
+    desc: 'SEO, paid media, social, email, and CRO — creative campaigns engineered to grow pipeline.',
+    points: ['Full-funnel strategy', 'Creative systems', 'Performance tracking'],
+    icon: FaBullhorn,
+    accent: 'from-[#0052d4] to-[#00c2ff]',
+    iconClass: 'text-[#0052d4]',
+    tag: 'Growth',
+  },
   {
     slug: 'website-development',
     title: 'Digital Solutions',
     desc: 'Custom business websites and landing pages built with modern, performance-first stacks.',
     points: ['Responsive design', 'SEO-ready structure', 'CMS integration'],
     icon: FaDesktop,
-    accent: 'from-violet-500 to-fuchsia-500',
-    iconClass: 'text-violet-600',
+    accent: 'from-sky-500 to-cyan-500',
+    iconClass: 'text-sky-600',
     tag: 'Web',
   },
   {
@@ -46,8 +58,8 @@ const SERVICES = [
     desc: 'Native-feel Android and iOS experiences with intuitive UI and secure backends.',
     points: ['Cross-platform builds', 'App store ready', 'Offline-friendly flows'],
     icon: FaMobileAlt,
-    accent: 'from-orange-400 to-rose-500',
-    iconClass: 'text-orange-600',
+    accent: 'from-blue-500 to-sky-400',
+    iconClass: 'text-blue-600',
     tag: 'Mobile',
   },
   {
@@ -56,8 +68,8 @@ const SERVICES = [
     desc: 'Online stores with secure checkout, inventory tools, and conversion-focused UX.',
     points: ['Payment gateways', 'Product catalogs', 'Order management'],
     icon: FaShoppingCart,
-    accent: 'from-cyan-400 to-teal-500',
-    iconClass: 'text-teal-600',
+    accent: 'from-cyan-400 to-sky-500',
+    iconClass: 'text-cyan-600',
     tag: 'Commerce',
   },
   {
@@ -66,8 +78,8 @@ const SERVICES = [
     desc: 'Scalable dashboards, portals, and internal tools tailored to your workflows.',
     points: ['API integrations', 'Role-based access', 'Cloud deployment'],
     icon: FaLaptopCode,
-    accent: 'from-pink-400 to-orange-400',
-    iconClass: 'text-pink-600',
+    accent: 'from-blue-600 to-cyan-400',
+    iconClass: 'text-blue-700',
     tag: 'Apps',
   },
   {
@@ -86,8 +98,8 @@ const SERVICES = [
     desc: 'Faster load times, better Core Web Vitals, and improved search visibility.',
     points: ['Caching strategy', 'Image optimization', 'Performance audits'],
     icon: FaTachometerAlt,
-    accent: 'from-blue-500 to-violet-600',
-    iconClass: 'text-violet-600',
+    accent: 'from-blue-500 to-sky-600',
+    iconClass: 'text-sky-600',
     tag: 'Speed',
   },
 ];
@@ -187,11 +199,11 @@ function ServiceCard({ service }) {
           ))}
         </ul>
         <Link
-          href={`/services/${service.slug}`}
-          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#5a1ccb] transition group-hover:gap-3"
+          href={service.href || `/services/${service.slug}`}
+          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#0052d4] transition group-hover:gap-3"
         >
           Explore service
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-100 text-[#5a1ccb] transition group-hover:bg-marketing-purple-gradient group-hover:text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 text-[#0052d4] transition group-hover:bg-marketing-purple-gradient group-hover:text-white">
             <FaArrowRight className="text-[10px]" aria-hidden />
           </span>
         </Link>
@@ -204,7 +216,7 @@ export default function OurServicesContent() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#000137] sm:pt-[calc(24px+3.75rem)]">
+    <main className="min-h-screen bg-[#F6FCFF] pt-[calc(22px+3.5rem)] text-[#0a0a0a] sm:pt-[calc(24px+3.75rem)]">
       <InnerPageHeroBanner
         title="Our Services"
         breadcrumbCurrent="Our Services"
@@ -216,7 +228,7 @@ export default function OurServicesContent() {
       {/* Intro + stats */}
       <section className="relative overflow-hidden bg-white py-16 sm:py-20">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(90,28,203,0.06),transparent_50%),radial-gradient(ellipse_at_0%_80%,rgba(0,180,216,0.08),transparent_45%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(0,82,212,0.06),transparent_50%),radial-gradient(ellipse_at_0%_80%,rgba(0,180,216,0.08),transparent_45%)]"
           aria-hidden
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -253,7 +265,7 @@ export default function OurServicesContent() {
                   variants={staggerItem}
                   className="hover-lift rounded-2xl border border-slate-100 bg-slate-50/80 p-5"
                 >
-                  <p className="text-3xl font-bold text-[#0E2238]">
+                  <p className="text-3xl font-bold text-[#0a0a0a]">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="mt-1 text-sm font-medium text-slate-500">{stat.label}</p>
@@ -302,7 +314,7 @@ export default function OurServicesContent() {
             <Animate variant="left">
               <p className="ref-kicker text-sm">
                 <span className="ref-kicker-line" aria-hidden />
-                Why Medhostech
+                Why Zorvian Digital Solutions
               </p>
               <h2 className="ref-section-title mt-4 text-3xl sm:text-4xl">
                 Built for clarity, speed, and long-term partnership
@@ -338,7 +350,7 @@ export default function OurServicesContent() {
               </Link>
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#0E2238] transition hover:border-violet-200 hover:bg-violet-50"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#0a0a0a] transition hover:border-sky-200 hover:bg-sky-50"
               >
                 Get a quote
               </Link>
@@ -351,7 +363,7 @@ export default function OurServicesContent() {
       <section className="relative overflow-hidden bg-[#F6FCFF] py-20 sm:py-24">
         <Animate variant="up">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="overflow-hidden rounded-[2rem] bg-marketing-purple-gradient p-8 text-white shadow-[0_28px_70px_-24px_rgba(90,28,203,0.5)] sm:p-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
+            <div className="overflow-hidden rounded-[2rem] bg-marketing-purple-gradient p-8 text-white shadow-[0_28px_70px_-24px_rgba(0,82,212,0.5)] sm:p-12 lg:flex lg:items-center lg:justify-between lg:gap-12">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">Start a project</p>
                 <h3 className="mt-3 max-w-xl text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
@@ -364,7 +376,7 @@ export default function OurServicesContent() {
               <motion.div whileHover={reduceMotion ? undefined : { scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/contact-us"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#5a1ccb] shadow-lg lg:mt-0"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#0052d4] shadow-lg lg:mt-0"
                 >
                   Contact us today
                   <FaArrowRight className="text-xs" aria-hidden />

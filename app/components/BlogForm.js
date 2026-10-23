@@ -16,7 +16,7 @@ function slugify(text) {
 
 const BLOG_CATEGORIES = [
   'Employee Management',
-  'Medhostech',
+  'Zorvian Digital Solutions',
   'Patient Management Software',
   'HRMS Software',
   'Clinic Management',
